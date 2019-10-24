@@ -8,6 +8,7 @@ struct MapView: UIViewRepresentable {
         let span = MKCoordinateSpan(latitudeDelta: 0.8, longitudeDelta: 0.8)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         mapView.setRegion(region, animated: false)
+        mapView.showsCompass = false
         return mapView
     }
 

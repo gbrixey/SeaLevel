@@ -17,6 +17,7 @@
 		E1E9E4A2236101B8008EBEDE /* SeaLevelSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9E4A1236101B8008EBEDE /* SeaLevelSlider.swift */; };
 		E1E9E4A423610C9C008EBEDE /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9E4A323610C9B008EBEDE /* InfoView.swift */; };
 		E1E9E4A72361F1C1008EBEDE /* ExpandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9E4A62361F1C1008EBEDE /* ExpandingView.swift */; };
+		E1E9E4B02362146D008EBEDE /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9E4AF2362146D008EBEDE /* BlurView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		E1E9E4A1236101B8008EBEDE /* SeaLevelSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeaLevelSlider.swift; sourceTree = "<group>"; };
 		E1E9E4A323610C9B008EBEDE /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		E1E9E4A62361F1C1008EBEDE /* ExpandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingView.swift; sourceTree = "<group>"; };
+		E1E9E4AF2362146D008EBEDE /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				E1E9E4942360EAF5008EBEDE /* MapView.swift */,
+				E1E9E4AF2362146D008EBEDE /* BlurView.swift */,
 				E1E9E4A62361F1C1008EBEDE /* ExpandingView.swift */,
 				E1E9E4A1236101B8008EBEDE /* SeaLevelSlider.swift */,
 				E1E9E4A323610C9B008EBEDE /* InfoView.swift */,
@@ -167,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1E9E43F235E0DD4008EBEDE /* AppDelegate.swift in Sources */,
+				E1E9E4B02362146D008EBEDE /* BlurView.swift in Sources */,
 				E1E9E4A2236101B8008EBEDE /* SeaLevelSlider.swift in Sources */,
 				E1E9E4952360EAF5008EBEDE /* MapView.swift in Sources */,
 				E1E9E441235E0DD4008EBEDE /* SceneDelegate.swift in Sources */,

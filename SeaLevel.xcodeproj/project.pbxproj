@@ -19,6 +19,8 @@
 		E1E9E4A72361F1C1008EBEDE /* ExpandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9E4A62361F1C1008EBEDE /* ExpandingView.swift */; };
 		E1E9E4B02362146D008EBEDE /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9E4AF2362146D008EBEDE /* BlurView.swift */; };
 		E1E9E4B523633AA5008EBEDE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9E4B423633AA5008EBEDE /* Constants.swift */; };
+		E1E9E4B92363A4AF008EBEDE /* SeaLevelMapOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9E4B82363A4AF008EBEDE /* SeaLevelMapOverlay.swift */; };
+		E1E9E4BC2363A4EF008EBEDE /* clear.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E9E4BB2363A4EF008EBEDE /* clear.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		E1E9E4A62361F1C1008EBEDE /* ExpandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandingView.swift; sourceTree = "<group>"; };
 		E1E9E4AF2362146D008EBEDE /* BlurView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		E1E9E4B423633AA5008EBEDE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E1E9E4B82363A4AF008EBEDE /* SeaLevelMapOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeaLevelMapOverlay.swift; sourceTree = "<group>"; };
+		E1E9E4BB2363A4EF008EBEDE /* clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clear.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +76,8 @@
 				E1E9E440235E0DD4008EBEDE /* SceneDelegate.swift */,
 				E1E9E442235E0DD4008EBEDE /* MainView.swift */,
 				E1E9E4A52361F1B3008EBEDE /* Components */,
-				E1E9E4B323633A8F008EBEDE /* Util */,
+				E1E9E4B323633A8F008EBEDE /* Data */,
+				E1E9E4BA2363A4C5008EBEDE /* Tiles */,
 				E1E9E444235E0DD6008EBEDE /* Assets.xcassets */,
 				E1E9E449235E0DD6008EBEDE /* LaunchScreen.storyboard */,
 				E1E9E44C235E0DD6008EBEDE /* Info.plist */,
@@ -101,12 +106,21 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		E1E9E4B323633A8F008EBEDE /* Util */ = {
+		E1E9E4B323633A8F008EBEDE /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				E1E9E4B423633AA5008EBEDE /* Constants.swift */,
+				E1E9E4B82363A4AF008EBEDE /* SeaLevelMapOverlay.swift */,
 			);
-			path = Util;
+			path = Data;
+			sourceTree = "<group>";
+		};
+		E1E9E4BA2363A4C5008EBEDE /* Tiles */ = {
+			isa = PBXGroup;
+			children = (
+				E1E9E4BB2363A4EF008EBEDE /* clear.png */,
+			);
+			path = Tiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +184,7 @@
 				E1E9E44B235E0DD6008EBEDE /* LaunchScreen.storyboard in Resources */,
 				E1E9E448235E0DD6008EBEDE /* Preview Assets.xcassets in Resources */,
 				E1E9E445235E0DD6008EBEDE /* Assets.xcassets in Resources */,
+				E1E9E4BC2363A4EF008EBEDE /* clear.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,6 +201,7 @@
 				E1E9E4952360EAF5008EBEDE /* MapView.swift in Sources */,
 				E1E9E441235E0DD4008EBEDE /* SceneDelegate.swift in Sources */,
 				E1E9E4A423610C9C008EBEDE /* InfoView.swift in Sources */,
+				E1E9E4B92363A4AF008EBEDE /* SeaLevelMapOverlay.swift in Sources */,
 				E1E9E4A72361F1C1008EBEDE /* ExpandingView.swift in Sources */,
 				E1E9E443235E0DD4008EBEDE /* MainView.swift in Sources */,
 				E1E9E4B523633AA5008EBEDE /* Constants.swift in Sources */,

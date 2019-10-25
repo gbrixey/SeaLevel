@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
     var body: some View {
         ZStack(alignment: .topTrailing) {
             MapView().edgesIgnoringSafeArea(.all)
@@ -10,11 +10,5 @@ struct ContentView: View {
             }
             .padding([.top, .leading, .trailing], 10)
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }

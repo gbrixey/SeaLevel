@@ -10,10 +10,3 @@ struct BlurView: UIViewRepresentable {
     func updateUIView(_ view: UIVisualEffectView, context: Context) {
     }
 }
-
-
-struct BlurView_Previews: PreviewProvider {
-    static var previews: some View {
-        BlurView()
-    }
-}

@@ -1,8 +1,7 @@
 import SwiftUI
 
 struct SeaLevelSlider: View {
-    @State var sliderValue = 0.0
-    @State private var isExpanded = false
+    @State private var sliderValue = 0.0
 
     var body: some View {
         ExpandingView(iconName: "slider.horizontal.3") {
@@ -15,11 +14,5 @@ struct SeaLevelSlider: View {
                     .padding(.trailing, 10)
             }
         }
-    }
-}
-
-struct SeaLevelSlider_Previews: PreviewProvider {
-    static var previews: some View {
-        SeaLevelSlider()
     }
 }

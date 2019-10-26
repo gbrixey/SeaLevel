@@ -13,10 +13,9 @@ struct ExpandingView<Content: View>: View {
     }
 
     var body: some View {
-        HStack(alignment: .top, spacing: 0) {
+        ZStack(alignment: .topTrailing) {
             if isExpanded {
                 contentBuilder()
-                    .transition(.expandingViewContent)
             }
             Button(action: {
                 withAnimation {
@@ -40,13 +39,3 @@ struct ExpandingView<Content: View>: View {
             .shadow(radius: 10)
     }
 }
-
-extension AnyTransition {
-    static var expandingViewContent: AnyTransition {
-        AnyTransition
-            .move(edge: .leading)
-            .combined(with: .opacity)
-    }
-}
-
-

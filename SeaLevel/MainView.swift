@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @State var elevation = 0.0
+    @State var elevation = 1.0
 
     var body: some View {
         ZStack(alignment: .topTrailing) {

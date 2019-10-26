@@ -1444,6 +1444,7 @@
 		E1E9059A23641A06008EBEDE /* z12x1204y1538e91.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E9FDCA23641A04008EBEDE /* z12x1204y1538e91.png */; };
 		E1E9059B23641A06008EBEDE /* z12x1204y1541e22.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E9FDCB23641A04008EBEDE /* z12x1204y1541e22.png */; };
 		E1E9059C23641A06008EBEDE /* z12x1204y1541e36.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E9FDCC23641A04008EBEDE /* z12x1204y1541e36.png */; };
+		E1E9059E23643B14008EBEDE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1E9059D23643B14008EBEDE /* Localizable.strings */; };
 		E1E9E43F235E0DD4008EBEDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9E43E235E0DD4008EBEDE /* AppDelegate.swift */; };
 		E1E9E441235E0DD4008EBEDE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9E440235E0DD4008EBEDE /* SceneDelegate.swift */; };
 		E1E9E443235E0DD4008EBEDE /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9E442235E0DD4008EBEDE /* MainView.swift */; };
@@ -2024,6 +2025,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E1E9059D23643B14008EBEDE /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		E1E9E43B235E0DD4008EBEDE /* SeaLevel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeaLevel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1E9E43E235E0DD4008EBEDE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1E9E440235E0DD4008EBEDE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };

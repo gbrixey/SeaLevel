@@ -8,3 +8,10 @@ extension MKCoordinateRegion {
         return MKCoordinateRegion(center: coordinate, span: span)
     }
 }
+
+extension String {
+
+    init(key: String) {
+        self = NSLocalizedString(key, comment: "")
+    }
+}

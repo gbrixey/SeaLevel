@@ -8,7 +8,6 @@ VOID_RAW = -32768
 VOID = 127
 ARCSECOND = 1 / 3600
 TILE_SIZE = 256
-OVERLAY_COLOR = 0x5AC8FA80
 
 def x(lon, z):
     '''Web Mercator tile origin X value for a given longitude and zoom level.'''
@@ -40,12 +39,12 @@ def create_tiles(tx, ty, z, arr, arr_lat, arr_lon):
       for py in range(0, TILE_SIZE):
         tile[py, px] = pixel_elevation(tx + (inc * px), ty + (inc * py), z, arr, arr_lat, arr_lon)
     # Save an overlay image for each sea level setting
-    tmp = numpy.zeros((TILE_SIZE, TILE_SIZE)).astype(numpy.int32)
+    tmp = numpy.zeros((TILE_SIZE, TILE_SIZE, 4)).astype(numpy.uint8)
     for sea_level in range(100):
         # TODO: Apply a different overlay color for voids if necessary
-        tmp[numpy.where(tile <= sea_level)] = OVERLAY_COLOR
+        tmp[numpy.where(tile <= sea_level)] = [0, 122, 255, 150]
         image = Image.fromarray(tmp, mode='RGBA')
-        path = 'SeaLevel/Tiles/{0}/{1}/{2}e{3}.png'.format(z, tx, ty, sea_level + 1)
+        path = 'SeaLevel/Tiles/{0}/{1}/z{2}x{3}y{4}e{5}.png'.format(z, tx, z, tx, ty, sea_level + 1)
         image.save(path)
         tmp.fill(0)
 

@@ -1,10 +1,18 @@
 import MapKit
 
 class SeaLevelMapOverlay: MKTileOverlay {
+    let elevation: Int
+
+    init(elevation: Int) {
+        self.elevation = elevation
+        super.init(urlTemplate: nil)
+        minimumZ = 11
+        maximumZ = 12
+    }
 
     override func url(forTilePath path: MKTileOverlayPath) -> URL {
-        // This is where tile overlays showing the effects of sea level rise would be returned.
-        // I don't have the data, so this function just returns a transparent overlay.
-        return Bundle.main.url(forResource: "clear", withExtension: "png")!
+        let resource = "z\(path.z)x\(path.x)y\(path.y)e\(elevation)"
+        let tilePath = Bundle.main.url(forResource: resource, withExtension: "png")
+        return tilePath ?? Bundle.main.url(forResource: "clear", withExtension: "png")!
     }
 }

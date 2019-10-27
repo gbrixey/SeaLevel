@@ -1,6 +1,6 @@
 # SeaLevel
 
-<img src="https://raw.githubusercontent.com/gbrixey/SeaLevel/master/screenshot.png" alt="Screenshot of the SeaLevel app" width="200" />
+<img src="https://raw.githubusercontent.com/gbrixey/SeaLevel/master/screenshot.png" alt="Screenshot of the SeaLevel app" width="250" />
 
 This app allows the user to raise the sea level with a slider. The map is then shaded blue to indicate which areas would be below sea level. However, even if they are below sea level, the shaded areas might not actually be under water, depending on local geography and other factors.
 

@@ -54,8 +54,8 @@ class SeaLevelMapOverlay: MKTileOverlay {
                 stream.read(&buffer, maxLength: buffer.count)
                 // The key for the map is a 64-bit integer created by bit shifting the Z, X, and Y values.
                 let k = buffer.prefix(6).map { UInt64($0) }
-                let key = k[0] << 40 + k[1] << 32 + k[2] << 24 + k[3] << 16 + k[4] << 8 + k[5]
-                let elevation = UInt16(buffer[6]) << 8 + UInt16(buffer[5])
+                let key = k[1] << 40 + k[0] << 32 + k[3] << 24 + k[2] << 16 + k[5] << 8 + k[4]
+                let elevation = UInt16(buffer[7]) << 8 + UInt16(buffer[6])
                 map[key] = elevation
             }
         }

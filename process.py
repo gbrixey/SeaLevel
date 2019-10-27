@@ -1,4 +1,5 @@
 import os
+import glob
 import math
 import numpy
 import sqlite3
@@ -28,8 +29,16 @@ def lon(x, z):
     '''Longitude for a given Web Mercator tile origin X value and zoom level.'''
     return 360 * ((x / (2 ** z)) - 0.5)
 
-def create_tiles(tx, ty, z, arr, arr_lat, arr_lon):
+def create_tiles(tx, ty, z, arr, arr_lat, arr_lon, overwrite = False):
     '''Create tile images for the tile at the given X and Y values and zoom level.'''
+    directory = 'SeaLevel/Tiles/{0}/{1}'.format(z, tx)
+    pathFormat = '{0}/z{1}x{2}y{3}e*.png'.format(directory, z, tx, ty)
+    # If overwrite is false, and there are existing images for this tile, return now.
+    if not overwrite and len(glob.glob(pathFormat)) > 0:
+        return
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+    # Calculate t_lat and t_lon, the coordinates of the top left corner of the tile.
     t_lat = lat(ty, z)
     t_lon = lon(tx, z)
     # TODO: Automatically read arr from file based on t_lat, t_lon, and z
@@ -67,10 +76,7 @@ def create_tiles(tx, ty, z, arr, arr_lat, arr_lon):
         # TODO: Apply a different overlay color for voids if necessary
         tmp[fill] = [0, 122, 255, 150]
         image = Image.fromarray(tmp, mode = 'RGBA')
-        directory = 'SeaLevel/Tiles/{0}/{1}'.format(z, tx)
-        if not os.path.exists(directory):
-            os.makedirs(directory)
-        path = '{0}/z{1}x{2}y{3}e{4}.png'.format(directory, z, tx, ty, sea_level + 1)
+        path = pathFormat.replace('*', str(sea_level + 1))
         image.save(path)
         tmp.fill(0)
 

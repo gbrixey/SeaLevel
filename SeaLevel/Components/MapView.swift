@@ -2,7 +2,7 @@ import SwiftUI
 import MapKit
 
 struct MapView: UIViewRepresentable {
-    @Binding var elevation: Double
+    @Binding var seaLevel: Double
 
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
@@ -18,7 +18,7 @@ struct MapView: UIViewRepresentable {
 
     func updateUIView(_ mapView: MKMapView, context: Context) {
         mapView.removeOverlays(mapView.overlays)
-        mapView.addOverlay(SeaLevelMapOverlay(elevation: Int(elevation)))
+        mapView.addOverlay(SeaLevelMapOverlay(seaLevel: Int(seaLevel)))
     }
 
     class Coordinator: NSObject, MKMapViewDelegate {

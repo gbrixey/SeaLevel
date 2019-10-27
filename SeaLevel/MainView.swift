@@ -1,13 +1,13 @@
 import SwiftUI
 
 struct MainView: View {
-    @State var elevation = 1.0
+    @State var seaLevel: Double = .initialSeaLevel
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            MapView(elevation: $elevation).edgesIgnoringSafeArea(.all)
+            MapView(seaLevel: $seaLevel).edgesIgnoringSafeArea(.all)
             VStack(alignment: .trailing, spacing: 10) {
-                SeaLevelSlider(sliderValue: $elevation)
+                SeaLevelSlider(seaLevel: $seaLevel)
                 InfoView()
             }
             .padding([.top, .leading, .trailing], 10)

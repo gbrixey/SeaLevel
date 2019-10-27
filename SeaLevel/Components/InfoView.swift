@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Expanding view that contains some info about the app.
 struct InfoView: View {
     var body: some View {
         ExpandingView(iconName: "info.circle") {

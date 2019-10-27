@@ -41,8 +41,13 @@ def create_tiles(tx, ty, z, arr, arr_lat, arr_lon):
     # Save an overlay image for each sea level setting
     tmp = numpy.zeros((TILE_SIZE, TILE_SIZE, 4)).astype(numpy.uint8)
     for sea_level in range(100):
+        fill = numpy.where(tile <= sea_level)
+        # If nowhere in the tile is below sea level, the image would be completely transparent.
+        # Skip creating the image to save a little disk space.
+        if len(fill[0]) == 0:
+            continue
         # TODO: Apply a different overlay color for voids if necessary
-        tmp[numpy.where(tile <= sea_level)] = [0, 122, 255, 150]
+        tmp[fill] = [0, 122, 255, 150]
         image = Image.fromarray(tmp, mode='RGBA')
         path = 'SeaLevel/Tiles/{0}/{1}/z{2}x{3}y{4}e{5}.png'.format(z, tx, z, tx, ty, sea_level + 1)
         image.save(path)
@@ -52,24 +57,27 @@ def pixel_elevation(px, py, z, arr, arr_lat, arr_lon):
     '''Calculate the approximate elevation value of the tile pixel at the given X and Y values and zoom level.
     arr is an array of arcsecond elevation values. arr_lat and arr_lon are the coordinates of the center
     of the lower-left square arcsecond in the array.'''
+    # Calculate p_lat and p_lon, The coordinates of the top left corner of the pixel.
     p_lat = lat(py, z)
     p_lon = lon(px, z)
+    # Calculate d_lat and d_lon, the dimensions of the pixel in degrees.
     inc = 1 / TILE_SIZE
     d_lat = p_lat - lat(py + inc, z)
     d_lon = lon(px + inc, z) - p_lon
     # Calculate the coordinate of the top left corner of the array
     tl_lat = arr_lat + arr.shape[0] * ARCSECOND - (ARCSECOND / 2)
     tl_lon = arr_lon - (ARCSECOND / 2)
-    # Find the indices of the arcsecond that contains the upper-left corner of the pixel
+    # Find the indices of the arcsecond cell that contains the upper-left corner of the pixel
     start_y = math.floor((tl_lat - p_lat) / ARCSECOND)
     start_lat = tl_lat - (start_y * ARCSECOND)
     start_x = math.floor((p_lon - tl_lon) / ARCSECOND)
     start_lon = tl_lon + (start_x * ARCSECOND)
-    # Find the indices of the arcsecond that contains the bottom-right corner of the pixel
+    # Find the indices of the arcsecond cell that contains the bottom-right corner of the pixel
     end_y = math.ceil((tl_lat - (p_lat - d_lat)) / ARCSECOND)
     end_x = math.ceil(((p_lon + d_lon) - tl_lon) / ARCSECOND)
-    # Calculate overlapping area multiplied by elevation value for each arcsecond
-    # There will be some inaccuracy since this is not planar geometry.
+    # Calculate overlapping area multiplied by elevation value for each arcsecond cell.
+    # For simplicity pretend that the cells are flat rectangles. This is not completely accurate,
+    # but the error should be negligible when working with high zoom levels.
     total = 0
     for cx in range(start_x, end_x):
       for cy in range(start_y, end_y):
@@ -78,7 +86,7 @@ def pixel_elevation(px, py, z, arr, arr_lat, arr_lon):
         o_lat = max(0, (min(p_lat, c_lat) - max(p_lat - d_lat, c_lat - ARCSECOND)))
         o_lon = max(0, (min(p_lon + d_lon, c_lon + ARCSECOND) - max(p_lon, c_lon)))
         total += (o_lat * o_lon * arr[cy, cx])
-    # Divide that number by the area of the pixel for the average elevation value.
+    # Divide the total (elevation * area) number by the area of the pixel for the average elevation value.
     return total / (d_lat * d_lon)
 
 def path(lat, lon):
@@ -114,7 +122,14 @@ def process(lat, lon):
     
 def visualize(arr):
     '''Displays a PIL image representing the given numpy array of integers between 0 and 100.'''
+    # Enhance! Scale values to 0-255 for better visibility
     arr2 = (arr * 2.55).astype(numpy.int8)
     image = Image.fromarray(arr2, mode='L')
     image.show()
+    
+def nyc_data():
+    '''Returns the elevation array needed for creating tiles in the NYC area.'''
+    left = process(40, -75).reshape((3600, 3600))
+    right = process(40, -74).reshape((3600, 3600))
+    return numpy.concatenate((left, right), axis = 1)
 

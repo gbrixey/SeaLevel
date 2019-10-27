@@ -1,3 +1,4 @@
+import os
 import math
 import numpy
 import sqlite3
@@ -42,14 +43,34 @@ def create_tiles(tx, ty, z, arr, arr_lat, arr_lon):
     tmp = numpy.zeros((TILE_SIZE, TILE_SIZE, 4)).astype(numpy.uint8)
     for sea_level in range(100):
         fill = numpy.where(tile <= sea_level)
+        fill_count = len(fill[0])
         # If nowhere in the tile is below sea level, the image would be completely transparent.
         # Skip creating the image to save a little disk space.
-        if len(fill[0]) == 0:
+        if fill_count == 0:
             continue
+        # If the tile is entirely below sea level, the image would be completely solid.
+        # To save disk space, stop creating images at this point and add the tile coordinates
+        # along with the current elevation to the map array.
+        if fill_count == tile.size:
+            solid_filename = 'SeaLevel/Tiles/solid.dat'
+            entry = numpy.array([z, tx, ty, sea_level + 1], dtype = numpy.uint16)
+            try:
+                with open(solid_filename, 'rb') as solid_file:
+                    solid_bytes = solid_file.read()
+                    solid = numpy.frombuffer(solid_bytes, dtype = numpy.uint16)
+            except IOError:
+                solid = numpy.array([], dtype = numpy.uint16)
+            solid = numpy.concatenate((solid, entry))
+            with open(solid_filename, 'wb') as solid_file:
+                solid_file.write(solid)
+            break
         # TODO: Apply a different overlay color for voids if necessary
         tmp[fill] = [0, 122, 255, 150]
-        image = Image.fromarray(tmp, mode='RGBA')
-        path = 'SeaLevel/Tiles/{0}/{1}/z{2}x{3}y{4}e{5}.png'.format(z, tx, z, tx, ty, sea_level + 1)
+        image = Image.fromarray(tmp, mode = 'RGBA')
+        directory = 'SeaLevel/Tiles/{0}/{1}'.format(z, tx)
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+        path = '{0}/z{1}x{2}y{3}e{4}.png'.format(directory, z, tx, ty, sea_level + 1)
         image.save(path)
         tmp.fill(0)
 
@@ -99,7 +120,7 @@ def process(lat, lon):
     '''Reads the hgt file for the given latitude and longitude
     and processes it into a numpy array of integers between 0 and 100.'''
     block_path = path(lat, lon)
-    block = numpy.fromfile(block_path, dtype=numpy.dtype('>i2'))
+    block = numpy.fromfile(block_path, dtype = numpy.dtype('>i2'))
     # Check that the block contains the expected number of values
     if len(block) != (BLOCK_SIZE * BLOCK_SIZE):
         print('{0}: Unexpected number of values: {1}'.format(block_path, len(block)))
@@ -124,7 +145,7 @@ def visualize(arr):
     '''Displays a PIL image representing the given numpy array of integers between 0 and 100.'''
     # Enhance! Scale values to 0-255 for better visibility
     arr2 = (arr * 2.55).astype(numpy.int8)
-    image = Image.fromarray(arr2, mode='L')
+    image = Image.fromarray(arr2, mode = 'L')
     image.show()
     
 def nyc_data():

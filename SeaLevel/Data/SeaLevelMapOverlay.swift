@@ -7,7 +7,7 @@ class SeaLevelMapOverlay: MKTileOverlay {
     init(seaLevel: Int) {
         self.seaLevel = seaLevel
         super.init(urlTemplate: nil)
-        minimumZ = 11
+        minimumZ = 9
     }
 
     override func url(forTilePath path: MKTileOverlayPath) -> URL {

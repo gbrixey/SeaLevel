@@ -16,6 +16,7 @@ struct ExpandingView<Content: View>: View {
         ZStack(alignment: .topTrailing) {
             if isExpanded {
                 contentBuilder()
+                    .transition(.expandingViewContent)
             }
             Button(action: {
                 withAnimation {
@@ -37,5 +38,13 @@ struct ExpandingView<Content: View>: View {
             .background(BlurView())
             .cornerRadius(20)
             .shadow(radius: 10)
+    }
+}
+
+extension AnyTransition {
+    static var expandingViewContent: AnyTransition {
+        AnyTransition
+            .move(edge: .leading)
+            .combined(with: .opacity)
     }
 }

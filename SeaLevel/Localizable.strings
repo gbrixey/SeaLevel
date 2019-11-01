@@ -2,3 +2,4 @@
 "info.paragraph.one" = "Move the slider to raise the sea level by up to 100 meters. The areas shaded in blue would be below sea level (but not necessarily under water) if the sea level were to rise by this amount.";
 "info.paragraph.two" = "Data comes from the NASA Shuttle Radar Topography Mission. This data is stored in the app, rather than accessed via the internet. Due to storage limitations, only the New York City area is currently supported.";
 "meters.format" = "%d m";
+"recenter.map.button" = "RE-CENTER MAP";

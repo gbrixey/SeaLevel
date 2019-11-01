@@ -2,12 +2,15 @@ import MapKit
 
 /// Class that provides map tile overlay images showing areas that are under sea level
 class SeaLevelMapOverlay: MKTileOverlay {
+    /// The minimum zoom level for which overlay images are shown.
+    static let minimumSupportedZoomLevel = 9
+
     let seaLevel: Int
 
     init(seaLevel: Int) {
         self.seaLevel = seaLevel
         super.init(urlTemplate: nil)
-        minimumZ = 9
+        minimumZ = SeaLevelMapOverlay.minimumSupportedZoomLevel
     }
 
     override func url(forTilePath path: MKTileOverlayPath) -> URL {

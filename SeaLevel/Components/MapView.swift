@@ -14,6 +14,7 @@ struct MapView: UIViewRepresentable {
         let mapView = MKMapView()
         mapView.setRegion(.defaultRegion, animated: false)
         mapView.showsCompass = false
+        mapView.isPitchEnabled = false
         mapView.delegate = context.coordinator
         return mapView
     }

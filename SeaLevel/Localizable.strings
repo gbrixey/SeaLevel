@@ -1,5 +1,7 @@
 "info.title" = "Sea Level Rise Viewer";
-"info.paragraph.one" = "Move the slider to raise the sea level by up to 100 meters. The areas shaded in blue would be below sea level (but not necessarily under water) if the sea level were to rise by this amount.";
-"info.paragraph.two" = "Data comes from the NASA Shuttle Radar Topography Mission. This data is stored in the app, rather than accessed via the internet. Due to storage limitations, only the New York City area is currently supported.";
+"info.paragraph.one" = "Move the slider to raise the mean sea level by up to 100 meters. The part of the map shaded in blue gives a general idea of which areas would be under water or at risk of flooding if the sea level were to rise by this amount. The shaded area is determined based only on surface elevation data, which is not 100% accurate. Also, it does not take into account local geography, tides, coastal erosion, infrastructure, and other factors that may increase or decrease the likelihood of flooding.";
+"info.current.data.title" = "Current Data Set";
+"info.srtm.title.nyc" = "NASA Shuttle Radar Topography Mission (SRTM) - New York City";
+"info.srtm.text" = "Radar measurements taken from Space Shuttle Endeavor in February 2000. SRTM data provides surface elevation at a resolution of one arcsecond (about 30 meters). The elevation measurements in this data set are generally higher than ground level since they are not corrected for the presence of tall buildings, trees, etc.";
 "meters.format" = "%d m";
 "recenter.map.button" = "RE-CENTER MAP";

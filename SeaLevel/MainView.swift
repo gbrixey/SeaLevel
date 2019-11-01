@@ -3,8 +3,9 @@ import MapKit
 
 struct MainView: View {
     @State var seaLevel: Double = .initialSeaLevel
-    @State var mapShowsOverlays: Bool = true
-    @State var programmaticMapRegion: MKCoordinateRegion? = nil
+    @State var showInfoView = false
+    @State var mapShowsOverlays = true
+    @State var programmaticMapRegion: MKCoordinateRegion?
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
@@ -14,32 +15,24 @@ struct MainView: View {
                 .edgesIgnoringSafeArea(.all)
             VStack(alignment: .trailing, spacing: 10) {
                 if !mapShowsOverlays {
-                    recenterMapButton
-                        .transition(.fadeAndMove(edge: .top))
+                    ActionButton(text: String(key: "recenter.map.button")) {
+                        withAnimation {
+                            self.programmaticMapRegion = .defaultRegion
+                        }
+                    }
+                    .transition(.fadeAndMove(edge: .top))
                 }
                 SeaLevelSlider(seaLevel: $seaLevel)
-                InfoView()
+                ActionButton(imageName: "info.circle") {
+                    self.showInfoView.toggle()
+                }
             }
             .animation(.easeInOut)
             .padding([.top, .leading, .trailing], 10)
         }
-    }
-
-    private var recenterMapButton: some View {
-        Button(action: {
-            withAnimation {
-                self.programmaticMapRegion = .defaultRegion
-            }
-        }, label: {
-            Text("recenter.map.button")
-                .font(.system(size: 12, weight: .bold))
-                .padding([.leading, .trailing], 20)
-                .frame(height: 40, alignment: .center)
-        })
-            .foregroundColor(Color(.label))
-            .background(BlurView())
-            .cornerRadius(20)
-            .shadow(radius: 10)
+        .sheet(isPresented: $showInfoView) {
+            InfoView()
+        }
     }
 }
 

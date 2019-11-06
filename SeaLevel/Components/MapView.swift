@@ -20,34 +20,53 @@ struct MapView: UIViewRepresentable {
         mapView.showsCompass = false
         mapView.isPitchEnabled = false
         mapView.delegate = context.coordinator
+        mapView.addOverlay(context.coordinator.overlay)
         let container = MapContainerView()
         container.mapView = mapView
         return container
     }
 
     func updateUIView(_ container: MapContainerView, context: Context) {
-        let animated = context.transaction.animation != nil
-        container.setCompassButtonOffset(compassButtonOffset)
         let mapView = container.mapView!
-        if let region = programmaticMapRegion {
-            mapView.setRegion(region, animated: animated)
-            DispatchQueue.main.async {
-                self.programmaticMapRegion = nil
-            }
-        }
-        mapView.removeOverlays(mapView.overlays)
-        mapView.addOverlay(SeaLevelMapOverlay(seaLevel: Int(seaLevel)))
-        mapView.showsUserLocation = mapShowsUserLocation
+        updateOverlaySeaLevel(context: context)
+        updateShowsUserLocation(for: mapView)
+        setProgrammaticMapRegion(for: mapView, context: context)
+        container.setCompassButtonOffset(compassButtonOffset)
+    }
+
+    private func updateOverlaySeaLevel(context: Context) {
+        // Making the tile overlay renderer reload data causes a flickering animation,
+        // so don't do it unless the sea level has actually changed.
+        let seaLevelInt = Int(seaLevel)
+        guard seaLevelInt != context.coordinator.overlay.seaLevel else { return }
+        context.coordinator.overlay.seaLevel = seaLevelInt
+        context.coordinator.renderer.reloadData()
+    }
+
+    private func updateShowsUserLocation(for mapView: MKMapView) {
         LocationManager.shared.shouldTrackUserLocation = mapShowsUserLocation
+        mapView.showsUserLocation = mapShowsUserLocation
+    }
+
+    private func setProgrammaticMapRegion(for mapView: MKMapView, context: Context) {
+        guard let region = programmaticMapRegion else { return }
+        mapView.setRegion(region, animated: context.transaction.animation != nil)
+        DispatchQueue.main.async {
+            self.programmaticMapRegion = nil
+        }
     }
 
     // MARK: - Coordinator
 
     class Coordinator: NSObject, MKMapViewDelegate {
         var mapView: MapView
+        var overlay: SeaLevelMapOverlay
+        var renderer: MKTileOverlayRenderer
 
         init(_ mapView: MapView) {
             self.mapView = mapView
+            overlay = SeaLevelMapOverlay()
+            renderer = MKTileOverlayRenderer(tileOverlay: overlay)
         }
 
         func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
@@ -55,7 +74,7 @@ struct MapView: UIViewRepresentable {
         }
 
         func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-            MKTileOverlayRenderer(overlay: overlay)
+            return renderer
         }
 
         private func mapViewShowsOverlays(_ mapView: MKMapView) -> Bool {

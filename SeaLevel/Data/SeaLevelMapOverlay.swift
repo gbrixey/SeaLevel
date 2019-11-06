@@ -5,10 +5,9 @@ class SeaLevelMapOverlay: MKTileOverlay {
     /// The minimum zoom level for which overlay images are shown.
     static let minimumSupportedZoomLevel = 9
 
-    let seaLevel: Int
+    var seaLevel: Int = 0
 
-    init(seaLevel: Int) {
-        self.seaLevel = seaLevel
+    init() {
         super.init(urlTemplate: nil)
         minimumZ = SeaLevelMapOverlay.minimumSupportedZoomLevel
     }

@@ -4,6 +4,7 @@ import MapKit
 struct MapView: UIViewRepresentable {
     @Binding var seaLevel: Double
     @Binding private(set) var mapShowsOverlays: Bool
+    @Binding var mapShowsUserLocation: Bool
     @Binding var programmaticMapRegion: MKCoordinateRegion?
 
     func makeCoordinator() -> Coordinator {
@@ -28,6 +29,8 @@ struct MapView: UIViewRepresentable {
         }
         mapView.removeOverlays(mapView.overlays)
         mapView.addOverlay(SeaLevelMapOverlay(seaLevel: Int(seaLevel)))
+        mapView.showsUserLocation = mapShowsUserLocation
+        LocationManager.shared.shouldTrackUserLocation = mapShowsUserLocation
     }
 
     class Coordinator: NSObject, MKMapViewDelegate {

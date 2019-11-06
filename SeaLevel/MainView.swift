@@ -1,19 +1,22 @@
 import SwiftUI
 import MapKit
 
+/// The root view of the application
 struct MainView: View {
-    @State var seaLevel: Double = .initialSeaLevel
-    @State var showInfoView = false
-    @State var mapShowsOverlays = true
-    @State var programmaticMapRegion: MKCoordinateRegion?
+    @State private var seaLevel: Double = .initialSeaLevel
+    @State private var showInfoView = false
+    @State private var mapShowsOverlays = true
+    @State private var mapShowsUserLocation = false
+    @State private var programmaticMapRegion: MKCoordinateRegion?
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
             MapView(seaLevel: $seaLevel,
                     mapShowsOverlays: $mapShowsOverlays,
+                    mapShowsUserLocation: $mapShowsUserLocation,
                     programmaticMapRegion: $programmaticMapRegion)
                 .edgesIgnoringSafeArea(.all)
-            VStack(alignment: .trailing, spacing: 10) {
+            VStack(alignment: .trailing, spacing: 8) {
                 if !mapShowsOverlays {
                     ActionButton(text: String(key: "recenter.map.button")) {
                         withAnimation {
@@ -23,12 +26,17 @@ struct MainView: View {
                     .transition(.fadeAndMove(edge: .top))
                 }
                 SeaLevelSlider(seaLevel: $seaLevel)
+                ActionButton(imageName: mapShowsUserLocation ? "location.fill" : "location") {
+                    LocationManager.shared.requestLocationPermissionIfNecessary {
+                        self.mapShowsUserLocation.toggle()
+                    }
+                }
                 ActionButton(imageName: "info.circle") {
                     self.showInfoView.toggle()
                 }
             }
             .animation(.easeInOut)
-            .padding([.top, .leading, .trailing], 10)
+            .padding([.top, .leading, .trailing], 8)
         }
         .sheet(isPresented: $showInfoView) {
             InfoView()

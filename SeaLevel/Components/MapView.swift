@@ -3,26 +3,34 @@ import MapKit
 
 struct MapView: UIViewRepresentable {
     @Binding var seaLevel: Double
-    @Binding private(set) var mapShowsOverlays: Bool
+    @Binding var mapShowsOverlays: Bool
     @Binding var mapShowsUserLocation: Bool
     @Binding var programmaticMapRegion: MKCoordinateRegion?
+
+    /// The offset of the compass button's center point from the top right corner of the safe area.
+    @Environment(\.compassButtonOffset) var compassButtonOffset: CGPoint
 
     func makeCoordinator() -> Coordinator {
         Coordinator(self)
     }
 
-    func makeUIView(context: Context) -> MKMapView {
+    func makeUIView(context: Context) -> MapContainerView {
         let mapView = MKMapView()
         mapView.setRegion(.defaultRegion, animated: false)
         mapView.showsCompass = false
         mapView.isPitchEnabled = false
         mapView.delegate = context.coordinator
-        return mapView
+        let container = MapContainerView()
+        container.mapView = mapView
+        return container
     }
 
-    func updateUIView(_ mapView: MKMapView, context: Context) {
+    func updateUIView(_ container: MapContainerView, context: Context) {
+        let animated = context.transaction.animation != nil
+        container.setCompassButtonOffset(compassButtonOffset)
+        let mapView = container.mapView!
         if let region = programmaticMapRegion {
-            mapView.setRegion(region, animated: context.transaction.animation != nil)
+            mapView.setRegion(region, animated: animated)
             DispatchQueue.main.async {
                 self.programmaticMapRegion = nil
             }
@@ -32,6 +40,8 @@ struct MapView: UIViewRepresentable {
         mapView.showsUserLocation = mapShowsUserLocation
         LocationManager.shared.shouldTrackUserLocation = mapShowsUserLocation
     }
+
+    // MARK: - Coordinator
 
     class Coordinator: NSObject, MKMapViewDelegate {
         var mapView: MapView
@@ -59,6 +69,72 @@ struct MapView: UIViewRepresentable {
             let zoomScale = 21 - log2((longitudeDelta * mercatorRadius * .pi) / Double(180 * mapView.frame.width))
             // It seems MKMapView requests tiles at 2 zoom levels greater than the current zoom level.
             return round(zoomScale + 2) > Double(SeaLevelMapOverlay.minimumSupportedZoomLevel)
+        }
+    }
+
+    // MARK: - MapContainerView
+
+    /// View that contains the map view and a compass button
+    class MapContainerView: UIView {
+
+        var mapView: MKMapView? {
+            didSet {
+                subviews.forEach { $0.removeFromSuperview() }
+                addMapView(mapView)
+                addCompassButton(for: mapView)
+            }
+        }
+
+        func setCompassButtonOffset(_ offset: CGPoint) {
+            compassButtonTopSpaceConstraint?.constant = offset.y
+            compassButtonTrailingSpaceConstraint?.constant = offset.x
+            UIView.animate(withDuration: .defaultAnimationDuration) {
+                self.layoutIfNeeded()
+            }
+        }
+
+        private var compassButtonTopSpaceConstraint: NSLayoutConstraint?
+        private var compassButtonTrailingSpaceConstraint: NSLayoutConstraint?
+
+        private func addMapView(_ mapView: MKMapView?) {
+            guard let mapView = mapView else { return }
+            addSubview(mapView)
+            mapView.translatesAutoresizingMaskIntoConstraints = false
+            mapView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+            mapView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+            mapView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+            mapView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        }
+
+        private func addCompassButton(for mapView: MKMapView?) {
+            guard let mapView = mapView else { return }
+            let compassButton = MKCompassButton(mapView: mapView)
+            compassButton.translatesAutoresizingMaskIntoConstraints = false
+            compassButton.compassVisibility = .adaptive
+
+            addSubview(compassButton)
+            let safe = safeAreaLayoutGuide
+            compassButtonTopSpaceConstraint = compassButton.centerYAnchor.constraint(equalTo: safe.topAnchor)
+            compassButtonTrailingSpaceConstraint = compassButton.centerXAnchor.constraint(equalTo: safe.trailingAnchor)
+            compassButtonTopSpaceConstraint?.isActive = true
+            compassButtonTrailingSpaceConstraint?.isActive = true
+        }
+    }
+}
+
+// MARK: - Environment extension
+
+struct CompassButtonOffsetKey: EnvironmentKey {
+    static let defaultValue: CGPoint = .zero
+}
+
+extension EnvironmentValues {
+    var compassButtonOffset: CGPoint {
+        get {
+            return self[CompassButtonOffsetKey.self]
+        }
+        set {
+            self[CompassButtonOffsetKey.self] = newValue
         }
     }
 }

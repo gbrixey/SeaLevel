@@ -3,6 +3,8 @@ import SwiftUI
 /// A button with a `BlurView` background capable of showing a
 struct ActionButton: View {
 
+    static let size: CGFloat = 40
+
     let imageName: String
     let text: String
     let action: () -> Void
@@ -18,13 +20,13 @@ struct ActionButton: View {
             HStack {
                 if !imageName.isEmpty {
                     Image(systemName: imageName)
-                        .frame(width: 40, height: 40, alignment: .center)
+                        .frame(width: ActionButton.size, height: ActionButton.size, alignment: .center)
                 }
                 if !text.isEmpty {
                     Text(text)
                         .font(.system(size: 12, weight: .bold))
                         .padding([.leading, .trailing], 20)
-                        .frame(height: 40, alignment: .center)
+                        .frame(height: ActionButton.size, alignment: .center)
                 }
             }
         }

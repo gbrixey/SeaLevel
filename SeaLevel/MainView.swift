@@ -15,8 +15,9 @@ struct MainView: View {
                     mapShowsOverlays: $mapShowsOverlays,
                     mapShowsUserLocation: $mapShowsUserLocation,
                     programmaticMapRegion: $programmaticMapRegion)
+                .environment(\.compassButtonOffset, compassButtonOffset)
                 .edgesIgnoringSafeArea(.all)
-            VStack(alignment: .trailing, spacing: 8) {
+            VStack(alignment: .trailing, spacing: buttonPadding) {
                 if !mapShowsOverlays {
                     ActionButton(text: String(key: "recenter.map.button")) {
                         withAnimation {
@@ -35,12 +36,24 @@ struct MainView: View {
                     self.showInfoView.toggle()
                 }
             }
-            .animation(.easeInOut)
-            .padding([.top, .leading, .trailing], 8)
+            .animation(.easeInOut(duration: .defaultAnimationDuration))
+            .padding([.top, .leading, .trailing], buttonPadding)
         }
         .sheet(isPresented: $showInfoView) {
             InfoView()
         }
+    }
+
+    // MARK: - Private
+
+    private let buttonPadding: CGFloat = 8
+
+    /// The offset of the compass button's center point from the top right corner of the safe area.
+    private var compassButtonOffset: CGPoint {
+        let numberOfButtons: CGFloat = mapShowsOverlays ? 3 : 4
+        let offsetX = -buttonPadding - ActionButton.size / 2
+        let offsetY = buttonPadding * (numberOfButtons + 1) + ActionButton.size * (numberOfButtons + 0.5)
+        return CGPoint(x: offsetX, y: offsetY)
     }
 }
 

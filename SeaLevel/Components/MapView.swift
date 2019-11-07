@@ -16,7 +16,7 @@ struct MapView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> MapContainerView {
         let mapView = MKMapView()
-        mapView.setRegion(.defaultRegion, animated: false)
+        mapView.setRegion(ResourceManager.shared.currentDataRegion, animated: false)
         mapView.showsCompass = false
         mapView.isPitchEnabled = false
         mapView.delegate = context.coordinator
@@ -79,7 +79,7 @@ struct MapView: UIViewRepresentable {
 
         private func mapViewShowsOverlays(_ mapView: MKMapView) -> Bool {
             // Case 1: The visible map area doesn't intersect the area with overlay data
-            if !mapView.visibleMapRect.intersects(MKCoordinateRegion.defaultRegion.mapRect) {
+            if !mapView.visibleMapRect.intersects(ResourceManager.shared.currentDataRegion.mapRect) {
                 return false
             }
             // Case 2: If the user zooms out too far, the overlays will disappear.
@@ -87,7 +87,7 @@ struct MapView: UIViewRepresentable {
             let mercatorRadius = 85445659.44705395
             let zoomScale = 21 - log2((longitudeDelta * mercatorRadius * .pi) / Double(180 * mapView.frame.width))
             // It seems MKMapView requests tiles at 2 zoom levels greater than the current zoom level.
-            return round(zoomScale + 2) > Double(SeaLevelMapOverlay.minimumSupportedZoomLevel)
+            return round(zoomScale + 2) > Double(overlay.minimumZ)
         }
     }
 

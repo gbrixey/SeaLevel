@@ -2,11 +2,9 @@ import MapKit
 
 extension MKCoordinateRegion {
 
-    /// The default region encompasses the NYC area.
-    static var defaultRegion: MKCoordinateRegion {
-        let coordinate = CLLocationCoordinate2D(latitude: 40.713956, longitude: -74.003906)
-        let span = MKCoordinateSpan(latitudeDelta: 0.7, longitudeDelta: 0.7)
-        return MKCoordinateRegion(center: coordinate, span: span)
+    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, latDelta: CLLocationDegrees, lonDelta: CLLocationDegrees) {
+        self.init(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
+                  span: MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta))
     }
 
     /// Converts the coordinate region to a map rect.

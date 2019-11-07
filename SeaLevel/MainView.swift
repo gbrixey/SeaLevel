@@ -8,6 +8,7 @@ struct MainView: View {
     @State private var mapShowsOverlays = true
     @State private var mapShowsUserLocation = false
     @State private var programmaticMapRegion: MKCoordinateRegion?
+    @ObservedObject private var resourceManager = ResourceManager.shared
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
@@ -21,7 +22,7 @@ struct MainView: View {
                 if !mapShowsOverlays {
                     ActionButton(text: String(key: "recenter.map.button")) {
                         withAnimation {
-                            self.programmaticMapRegion = .defaultRegion
+                            self.programmaticMapRegion = self.resourceManager.currentDataRegion
                         }
                     }
                     .transition(.fadeAndMove(edge: .top))
@@ -38,6 +39,8 @@ struct MainView: View {
             }
             .animation(.easeInOut(duration: .defaultAnimationDuration))
             .padding([.top, .leading, .trailing], buttonPadding)
+
+            // Loading overlay goes here
         }
         .sheet(isPresented: $showInfoView) {
             InfoView()

@@ -12,6 +12,9 @@
 		E13AD4D2236CC74F008AE91E /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13AD4D1236CC74F008AE91E /* ActionButton.swift */; };
 		E1E51C8A2373366F00E6EFB2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E51C892373366F00E6EFB2 /* LocationManager.swift */; };
 		E1E51C8C23736FBD00E6EFB2 /* newYorkCitySRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1E51C8B23736FBD00E6EFB2 /* newYorkCitySRTM.zip */; };
+		E1E51C912373724E00E6EFB2 /* ZIPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E51C902373724E00E6EFB2 /* ZIPFoundation.framework */; };
+		E1E51C9423737A1700E6EFB2 /* ResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E51C9323737A1700E6EFB2 /* ResourceManager.swift */; };
+		E1E51C9623737A3300E6EFB2 /* DataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E51C9523737A3300E6EFB2 /* DataSet.swift */; };
 		E1E9059E23643B14008EBEDE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1E9059D23643B14008EBEDE /* Localizable.strings */; };
 		E1E987AE2365525C008EBEDE /* solid.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E987AD2365525C008EBEDE /* solid.png */; };
 		E1E9E43F235E0DD4008EBEDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9E43E235E0DD4008EBEDE /* AppDelegate.swift */; };
@@ -36,6 +39,9 @@
 		E13AD4D1236CC74F008AE91E /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		E1E51C892373366F00E6EFB2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E1E51C8B23736FBD00E6EFB2 /* newYorkCitySRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = newYorkCitySRTM.zip; sourceTree = "<group>"; };
+		E1E51C902373724E00E6EFB2 /* ZIPFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZIPFoundation.framework; path = Carthage/Build/iOS/ZIPFoundation.framework; sourceTree = "<group>"; };
+		E1E51C9323737A1700E6EFB2 /* ResourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceManager.swift; sourceTree = "<group>"; };
+		E1E51C9523737A3300E6EFB2 /* DataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSet.swift; sourceTree = "<group>"; };
 		E1E9059D23643B14008EBEDE /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		E1E987AD2365525C008EBEDE /* solid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = solid.png; sourceTree = "<group>"; };
 		E1E9E43B235E0DD4008EBEDE /* SeaLevel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeaLevel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,17 +67,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1E51C912373724E00E6EFB2 /* ZIPFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E1E51C8F2373724E00E6EFB2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E1E51C902373724E00E6EFB2 /* ZIPFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E1E9E432235E0DD4008EBEDE = {
 			isa = PBXGroup;
 			children = (
 				E1E9E43D235E0DD4008EBEDE /* SeaLevel */,
 				E1E9E43C235E0DD4008EBEDE /* Products */,
+				E1E51C8F2373724E00E6EFB2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -126,9 +142,11 @@
 		E1E9E4B323633A8F008EBEDE /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				E1E51C9523737A3300E6EFB2 /* DataSet.swift */,
 				E1126B14236B555600931065 /* LocalizedString.swift */,
 				E1E51C892373366F00E6EFB2 /* LocationManager.swift */,
 				E1E9E4B423633AA5008EBEDE /* MapRegion.swift */,
+				E1E51C9323737A1700E6EFB2 /* ResourceManager.swift */,
 				E1E9E4B82363A4AF008EBEDE /* SeaLevelMapOverlay.swift */,
 			);
 			path = Data;
@@ -152,8 +170,9 @@
 			buildConfigurationList = E1E9E44F235E0DD6008EBEDE /* Build configuration list for PBXNativeTarget "SeaLevel" */;
 			buildPhases = (
 				E1E9E437235E0DD4008EBEDE /* Sources */,
-				E1E9E438235E0DD4008EBEDE /* Frameworks */,
+				E1E51C922373727100E6EFB2 /* Carthage Frameworks */,
 				E1E9E439235E0DD4008EBEDE /* Resources */,
+				E1E9E438235E0DD4008EBEDE /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -214,6 +233,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		E1E51C922373727100E6EFB2 /* Carthage Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/ZIPFoundation.framework",
+			);
+			name = "Carthage Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ZIPFoundation.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E1E9E437235E0DD4008EBEDE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -223,6 +265,7 @@
 				E1E9E4B02362146D008EBEDE /* BlurView.swift in Sources */,
 				E13AD4D2236CC74F008AE91E /* ActionButton.swift in Sources */,
 				E1126B15236B555600931065 /* LocalizedString.swift in Sources */,
+				E1E51C9423737A1700E6EFB2 /* ResourceManager.swift in Sources */,
 				E1E9E4A2236101B8008EBEDE /* SeaLevelSlider.swift in Sources */,
 				E1E9E4952360EAF5008EBEDE /* MapView.swift in Sources */,
 				E1E9E441235E0DD4008EBEDE /* SceneDelegate.swift in Sources */,
@@ -232,6 +275,7 @@
 				E1E51C8A2373366F00E6EFB2 /* LocationManager.swift in Sources */,
 				E1E9E4A72361F1C1008EBEDE /* ExpandingView.swift in Sources */,
 				E1E9E443235E0DD4008EBEDE /* MainView.swift in Sources */,
+				E1E51C9623737A3300E6EFB2 /* DataSet.swift in Sources */,
 				E1E9E4B523633AA5008EBEDE /* MapRegion.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,6 +416,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SeaLevel/Preview Content\"";
 				DEVELOPMENT_TEAM = CXX7YE89XK;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SeaLevel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -392,6 +440,10 @@
 				DEVELOPMENT_ASSET_PATHS = "\"SeaLevel/Preview Content\"";
 				DEVELOPMENT_TEAM = CXX7YE89XK;
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = SeaLevel/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -21,6 +21,8 @@ class ResourceManager: ObservableObject {
     var currentDataRegion: MKCoordinateRegion {
         // This data could also be stored in a file instead of hardcoded for each enum case.
         switch currentDataSet {
+        case .londonSRTM:
+            return MKCoordinateRegion(latitude: 51.508742, longitude: -0.175781, latDelta: 0.7, lonDelta: 0.7)
         case .newYorkCitySRTM:
             return MKCoordinateRegion(latitude: 40.713956, longitude: -74.003906, latDelta: 0.7, lonDelta: 0.7)
         }
@@ -64,7 +66,7 @@ class ResourceManager: ObservableObject {
 
     // MARK: - Private
 
-    private static let defaultDataSet: DataSet = .newYorkCitySRTM
+    private static let defaultDataSet: DataSet = .londonSRTM
     private static var solidTileURL: URL { Bundle.main.url(forResource: "solid", withExtension: "png")! }
     private static var clearTileURL: URL { Bundle.main.url(forResource: "clear", withExtension: "png")! }
 

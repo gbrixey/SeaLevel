@@ -15,6 +15,7 @@
 		E1E51C912373724E00E6EFB2 /* ZIPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E51C902373724E00E6EFB2 /* ZIPFoundation.framework */; };
 		E1E51C9423737A1700E6EFB2 /* ResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E51C9323737A1700E6EFB2 /* ResourceManager.swift */; };
 		E1E51C9623737A3300E6EFB2 /* DataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E51C9523737A3300E6EFB2 /* DataSet.swift */; };
+		E1E51C982373A8DF00E6EFB2 /* londonSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1E51C972373A8DF00E6EFB2 /* londonSRTM.zip */; };
 		E1E9059E23643B14008EBEDE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1E9059D23643B14008EBEDE /* Localizable.strings */; };
 		E1E987AE2365525C008EBEDE /* solid.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E987AD2365525C008EBEDE /* solid.png */; };
 		E1E9E43F235E0DD4008EBEDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9E43E235E0DD4008EBEDE /* AppDelegate.swift */; };
@@ -42,6 +43,7 @@
 		E1E51C902373724E00E6EFB2 /* ZIPFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZIPFoundation.framework; path = Carthage/Build/iOS/ZIPFoundation.framework; sourceTree = "<group>"; };
 		E1E51C9323737A1700E6EFB2 /* ResourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceManager.swift; sourceTree = "<group>"; };
 		E1E51C9523737A3300E6EFB2 /* DataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSet.swift; sourceTree = "<group>"; };
+		E1E51C972373A8DF00E6EFB2 /* londonSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = londonSRTM.zip; sourceTree = "<group>"; };
 		E1E9059D23643B14008EBEDE /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		E1E987AD2365525C008EBEDE /* solid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = solid.png; sourceTree = "<group>"; };
 		E1E9E43B235E0DD4008EBEDE /* SeaLevel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeaLevel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +159,7 @@
 			children = (
 				E1E9E4BB2363A4EF008EBEDE /* clear.png */,
 				E1E987AD2365525C008EBEDE /* solid.png */,
+				E1E51C972373A8DF00E6EFB2 /* londonSRTM.zip */,
 				E1E51C8B23736FBD00E6EFB2 /* newYorkCitySRTM.zip */,
 			);
 			path = Tiles;
@@ -228,6 +231,7 @@
 				E1E9E448235E0DD6008EBEDE /* Preview Assets.xcassets in Resources */,
 				E1E9E445235E0DD6008EBEDE /* Assets.xcassets in Resources */,
 				E1E9E4BC2363A4EF008EBEDE /* clear.png in Resources */,
+				E1E51C982373A8DF00E6EFB2 /* londonSRTM.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

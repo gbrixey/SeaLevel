@@ -3,7 +3,7 @@ import MapKit
 
 /// The root view of the application
 struct MainView: View {
-    @State private var seaLevel: Double = .initialSeaLevel
+    @State private var seaLevel: Double = 0
     @State private var showInfoView = false
     @State private var mapShowsOverlays = true
     @State private var mapShowsUserLocation = false
@@ -58,11 +58,4 @@ struct MainView: View {
         let offsetY = buttonPadding * (numberOfButtons + 1) + ActionButton.size * (numberOfButtons + 0.5)
         return CGPoint(x: offsetX, y: offsetY)
     }
-}
-
-private extension Double {
-
-    /// The initial sea level is 1.0 so that the app will start off showing overlay tiles.
-    /// If the sea level is set to 0, then no tiles are shown, because the map already reflects the current sea level.
-    static var initialSeaLevel: Double { 1.0 }
 }

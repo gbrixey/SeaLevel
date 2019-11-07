@@ -29,10 +29,11 @@ def lon(x, z):
     '''Longitude for a given Web Mercator tile origin X value and zoom level.'''
     return 360 * ((x / (2 ** z)) - 0.5)
 
-def create_tiles(tx, ty, z, arr, arr_lat, arr_lon, overwrite = False):
+def create_tiles(tx, ty, z, arr, arr_lat, arr_lon, dataset, overwrite = False):
     '''Create tile images for the tile at the given X and Y values and zoom level.'''
-    directory = 'SeaLevel/Tiles/{0}/{1}'.format(z, tx)
-    pathFormat = '{0}/z{1}x{2}y{3}e*.png'.format(directory, z, tx, ty)
+    rootTilesDirectory = 'SeaLevel/Tiles/{0}'.format(dataset)
+    directory = '{0}/{1}/{2}'.format(rootTilesDirectory, z, tx)
+    pathFormat = '{0}/{1}_z{2}x{3}y{4}e*.png'.format(directory, dataset, z, tx, ty)
     # If overwrite is false, and there are existing images for this tile, return now.
     if not overwrite and len(glob.glob(pathFormat)) > 0:
         return
@@ -61,7 +62,7 @@ def create_tiles(tx, ty, z, arr, arr_lat, arr_lon, overwrite = False):
         # To save disk space, stop creating images at this point and add the tile coordinates
         # along with the current elevation to the map array.
         if fill_count == tile.size:
-            solid_filename = 'SeaLevel/Tiles/solid.dat'
+            solid_filename = '{0}/{1}_solid.dat'.format(rootTilesDirectory, dataset)
             entry = numpy.array([z, tx, ty, sea_level + 1], dtype = numpy.uint16)
             try:
                 with open(solid_filename, 'rb') as solid_file:
@@ -159,4 +160,28 @@ def nyc_data():
     left = process(40, -75).reshape((3600, 3600))
     right = process(40, -74).reshape((3600, 3600))
     return numpy.concatenate((left, right), axis = 1)
+
+def london_data():
+    '''Returns the elevation array needed for creating tiles in the London area.'''
+    left = process(51, -1).reshape((3600, 3600))
+    right = process(51, 0).reshape((3600, 3600))
+    return numpy.concatenate((left, right), axis = 1)
+
+def create_london_tiles():
+    a = london_data()
+    start_x = 1021
+    start_y = 679
+    for tx in range(start_x, start_x + 4):
+        for ty in range(start_y, start_y + 4):
+            create_tiles(tx, ty, 11, a, 51, -1, 'londonSRTM')
+    start_x *= 2
+    start_y *= 2
+    for tx in range(start_x, start_x + 8):
+        for ty in range(start_y, start_y + 8):
+            create_tiles(tx, ty, 12, a, 51, -1, 'londonSRTM')
+    start_x *= 2
+    start_y *= 2
+    for tx in range(start_x, start_x + 16):
+        for ty in range(start_y, start_y + 16):
+            create_tiles(tx, ty, 13, a, 51, -1, 'londonSRTM')
 

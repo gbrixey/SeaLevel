@@ -22,7 +22,7 @@ struct MainView: View {
                 if !mapShowsOverlays {
                     ActionButton(text: String(key: "recenter.map.button")) {
                         withAnimation {
-                            self.programmaticMapRegion = self.resourceManager.currentDataRegion
+                            self.programmaticMapRegion = self.resourceManager.currentDataSet.region
                         }
                     }
                     .transition(.fadeAndMove(edge: .top))

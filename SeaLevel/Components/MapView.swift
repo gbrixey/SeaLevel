@@ -16,7 +16,7 @@ struct MapView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> MapContainerView {
         let mapView = MKMapView()
-        mapView.setRegion(ResourceManager.shared.currentDataRegion, animated: false)
+        mapView.setRegion(ResourceManager.shared.currentDataSet.region, animated: false)
         mapView.showsCompass = false
         mapView.isPitchEnabled = false
         mapView.delegate = context.coordinator
@@ -79,7 +79,7 @@ struct MapView: UIViewRepresentable {
 
         private func mapViewShowsOverlays(_ mapView: MKMapView) -> Bool {
             // Case 1: The visible map area doesn't intersect the area with overlay data
-            if !mapView.visibleMapRect.intersects(ResourceManager.shared.currentDataRegion.mapRect) {
+            if !mapView.visibleMapRect.intersects(ResourceManager.shared.currentDataSet.region.mapRect) {
                 return false
             }
             // Case 2: If the user zooms out too far, the overlays will disappear.

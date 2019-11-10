@@ -17,16 +17,7 @@ class ResourceManager: ObservableObject {
     @Published private(set) var isLoading = false
     private(set) var progress = Progress()
     private(set) var error: Error?
-
-    var currentDataRegion: MKCoordinateRegion {
-        // This data could also be stored in a file instead of hardcoded for each enum case.
-        switch currentDataSet {
-        case .londonSRTM:
-            return MKCoordinateRegion(latitude: 51.508742, longitude: -0.175781, latDelta: 0.7, lonDelta: 0.7)
-        case .newYorkCitySRTM:
-            return MKCoordinateRegion(latitude: 40.713956, longitude: -74.003906, latDelta: 0.7, lonDelta: 0.7)
-        }
-    }
+    private(set) var currentDataSet = ResourceManager.defaultDataSet
 
     func ensureInitialData() {
         isLoading = true
@@ -71,7 +62,6 @@ class ResourceManager: ObservableObject {
     private static var clearTileURL: URL { Bundle.main.url(forResource: "clear", withExtension: "png")! }
 
     private let fileManager = FileManager.default
-    private var currentDataSet = ResourceManager.defaultDataSet
 
     /// This dictionary stores maximum elevations for tiles in the current data set.
     /// The keys of the dictionary are created by combining the tile coordinates into a single integer.

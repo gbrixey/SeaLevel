@@ -11,8 +11,8 @@ struct InfoView: View {
                     VStack(alignment: .leading, spacing: 15) {
                         Text("info.paragraph.one")
                         Text("info.current.data.title").bold()
-                        Text("info.srtm.title.nyc")
-                        Text("info.srtm.text")
+                        Text(ResourceManager.shared.currentDataSet.infoTitle)
+                        Text(ResourceManager.shared.currentDataSet.infoText)
                         Spacer()
                     }.padding()
                 }

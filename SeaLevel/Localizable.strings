@@ -1,3 +1,6 @@
+"error.title" = "Error";
+"error.message" = "Please try again later.";
+"error.dismiss" = "OK";
 "info.title" = "Sea Level Rise Viewer";
 "info.paragraph.one" = "Move the slider to raise the mean sea level by up to 100 meters. The part of the map shaded in blue shows the area that would be below sea level, based on the selected surface elevation dataset.";
 "info.current.data.title" = "Current Data Set";

@@ -46,6 +46,11 @@ struct MainView: View {
         .sheet(isPresented: $showInfoView) {
             InfoView()
         }
+        .alert(isPresented: $loadingObservable.hasError) {
+            Alert(title: Text("error.title"),
+                  message: Text("error.message"),
+                  dismissButton: .default(Text("error.dismiss")))
+        }
     }
 
     // MARK: - Private

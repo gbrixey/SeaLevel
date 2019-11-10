@@ -2,8 +2,10 @@
 
 <img src="https://raw.githubusercontent.com/gbrixey/SeaLevel/master/screenshot.png" alt="Screenshot of the SeaLevel app" width="250" />
 
-This app allows the user to raise the sea level with a slider. The map is then shaded blue to indicate which areas would be below sea level. However, even if they are below sea level, the shaded areas might not actually be under water, depending on local geography and other factors.
+This app allows the user to raise the sea level with a slider. The map is then shaded blue to indicate which areas would be below sea level based on the selected surface elevation data set.
 
-Data comes from the [NASA Shuttle Radar Topography Mission](https://www2.jpl.nasa.gov/srtm/). This data provides surface elevation at a resolution of one arcsecond (about 30 meters). The elevation measurements in this data set may be higher than ground level in some areas due to the presence of buildings, trees, etc.
+The surface elevation data was used to generate map overlay images. I have not created a web API for fetching these images, so they have to be stored in the app using the iOS On-Demand Resources feature. Due to storage limitations, only one area can be viewed at a time. The active area can be changed from the map UI, which may require downloading additional data.
 
-The SRTM data was used to generate map overlay images. These images are bundled with the app, rather than accessed via the internet. Due to storage limitations, only images for the New York City area are included.
+Data sets used (only one so far):
+
+- [NASA Shuttle Radar Topography Mission](https://www2.jpl.nasa.gov/srtm/)

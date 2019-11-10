@@ -8,7 +8,7 @@ struct MainView: View {
     @State private var mapShowsOverlays = true
     @State private var mapShowsUserLocation = false
     @State private var programmaticMapRegion: MKCoordinateRegion?
-    @EnvironmentObject private var resourceManager: ResourceManager
+    @ObservedObject private var resourceManager = ResourceManager.shared
 
     var body: some View {
         ZStack(alignment: .topTrailing) {

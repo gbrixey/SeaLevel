@@ -1,7 +1,6 @@
 import SwiftUI
 
 struct LoadingView: View {
-    @EnvironmentObject private var resourceManager: ResourceManager
 
     var body: some View {
         VStack(spacing: 20) {
@@ -11,7 +10,7 @@ struct LoadingView: View {
                 .frame(width: 320)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-        .background(Color.black.opacity(0.5))
+        .background(Color.black.opacity(0.6))
         .edgesIgnoringSafeArea(.all)
     }
 }
@@ -19,13 +18,12 @@ struct LoadingView: View {
 // MARK: - ProgressView
 
 struct ProgressView: UIViewRepresentable {
-    @EnvironmentObject private var resourceManager: ResourceManager
 
     func makeUIView(context: Context) -> UIProgressView {
         let progressView = UIProgressView(progressViewStyle: .default)
-        progressView.trackTintColor = .darkGray
+        progressView.trackTintColor = .black
         progressView.progressTintColor = .white
-        progressView.observedProgress = resourceManager.progress
+        progressView.observedProgress = ResourceManager.shared.progress
         return progressView
     }
 

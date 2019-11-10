@@ -8,7 +8,7 @@ struct MainView: View {
     @State private var mapShowsOverlays = true
     @State private var mapShowsUserLocation = false
     @State private var programmaticMapRegion: MKCoordinateRegion?
-    @ObservedObject private var resourceManager = ResourceManager.shared
+    @ObservedObject private var loadingObservable = ResourceManager.shared.loadingObservable
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
@@ -22,7 +22,7 @@ struct MainView: View {
                 if !mapShowsOverlays {
                     ActionButton(text: String(key: "recenter.map.button")) {
                         withAnimation {
-                            self.programmaticMapRegion = self.resourceManager.currentDataSet.region
+                            self.programmaticMapRegion = ResourceManager.shared.currentDataSet.region
                         }
                     }
                     .transition(.fadeAndMove(edge: .top))
@@ -39,7 +39,7 @@ struct MainView: View {
             }
             .animation(.easeInOut(duration: .defaultAnimationDuration))
             .padding([.top, .leading, .trailing], buttonPadding)
-            if resourceManager.isLoading {
+            if loadingObservable.isLoading {
                 LoadingView()
             }
         }

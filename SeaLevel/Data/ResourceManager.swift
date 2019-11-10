@@ -3,7 +3,7 @@ import ZIPFoundation
 import MapKit
 
 /// Class responsible for managing tile images and other data resources on disk.
-class ResourceManager: ObservableObject {
+class ResourceManager {
 
     static let shared = ResourceManager()
 
@@ -14,18 +14,18 @@ class ResourceManager: ObservableObject {
     /// The tile images at this zoom level will be cropped and resized to provide tile images at higher zoom levels.
     static let maxZForTileImages = 13
 
-    @Published private(set) var isLoading = false
+    let loadingObservable = LoadingObservable()
     private(set) var progress = Progress()
     private(set) var error: Error?
     private(set) var currentDataSet = ResourceManager.defaultDataSet
 
     func ensureInitialData() {
-        isLoading = true
+        loadingObservable.isLoading = true
         DispatchQueue.global(qos: .userInitiated).async {
             self.unzipCurrentDataSet()
             self.loadMaximumElevationMapForCurrentDataSet()
             DispatchQueue.main.async {
-                self.isLoading = false
+                self.loadingObservable.isLoading = false
             }
         }
     }
@@ -126,4 +126,10 @@ class ResourceManager: ObservableObject {
         }
         stream.close()
     }
+}
+
+// MARK: - LoadingObservable
+
+class LoadingObservable: ObservableObject {
+    @Published fileprivate(set) var isLoading: Bool = false
 }

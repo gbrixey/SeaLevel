@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E10D82C923787091004EF501 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E10D82C823787091004EF501 /* SearchView.swift */; };
 		E1126B15236B555600931065 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1126B14236B555600931065 /* LocalizedString.swift */; };
 		E1126B17236B64F300931065 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1126B16236B64F300931065 /* Transitions.swift */; };
 		E13AD4D2236CC74F008AE91E /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13AD4D1236CC74F008AE91E /* ActionButton.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E10D82C823787091004EF501 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		E1126B14236B555600931065 /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		E1126B16236B64F300931065 /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
 		E13AD4D1236CC74F008AE91E /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				E1E51C992374D3EA00E6EFB2 /* LoadingView.swift */,
 				E1E9E4942360EAF5008EBEDE /* MapView.swift */,
 				E1E9E4A1236101B8008EBEDE /* SeaLevelSlider.swift */,
+				E10D82C823787091004EF501 /* SearchView.swift */,
 				E1126B16236B64F300931065 /* Transitions.swift */,
 			);
 			path = Components;
@@ -282,6 +285,7 @@
 				E1E9E4952360EAF5008EBEDE /* MapView.swift in Sources */,
 				E1E9E441235E0DD4008EBEDE /* SceneDelegate.swift in Sources */,
 				E1126B17236B64F300931065 /* Transitions.swift in Sources */,
+				E10D82C923787091004EF501 /* SearchView.swift in Sources */,
 				E1E9E4A423610C9C008EBEDE /* InfoView.swift in Sources */,
 				E1E9E4B92363A4AF008EBEDE /* SeaLevelMapOverlay.swift in Sources */,
 				E1E51C8A2373366F00E6EFB2 /* LocationManager.swift in Sources */,

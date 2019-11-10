@@ -28,7 +28,7 @@ class ResourceManager {
         progress = request.progress
         loadingStepObservable.loadingStep = String(key: "loading.step.downloading")
         loadingObservable.isLoading = true
-        loadingObservable.hasError = false
+        loadingObservable.shouldDisplayError = false
         request.beginAccessingResources { error in
             self.error = error
             if error == nil {
@@ -43,7 +43,7 @@ class ResourceManager {
             }
             DispatchQueue.main.async {
                 self.loadingObservable.isLoading = false
-                self.loadingObservable.hasError = self.error != nil
+                self.loadingObservable.shouldDisplayError = self.error != nil
             }
         }
     }
@@ -154,7 +154,7 @@ class ResourceManager {
 
 class LoadingObservable: ObservableObject {
     @Published fileprivate(set) var isLoading: Bool = false
-    @Published var hasError: Bool = false
+    @Published var shouldDisplayError: Bool = false
 }
 
 class LoadingStepObservable: ObservableObject {

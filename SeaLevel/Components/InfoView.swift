@@ -7,29 +7,26 @@ struct InfoView: View {
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: true) {
-                ZStack(alignment: .topTrailing) {
-                    VStack(alignment: .leading, spacing: 15) {
-                        Text("info.paragraph.one")
-                        Text("info.current.data.title").bold()
-                        Text(ResourceManager.shared.currentDataSet.infoTitle)
-                        Text(ResourceManager.shared.currentDataSet.infoText)
-                        Spacer()
-                    }.padding()
+                VStack(alignment: .leading, spacing: 15) {
+                    Text("info.introduction")
+                    Text("info.current.data.title").bold()
+                    Text(ResourceManager.shared.currentDataSet.infoTitle)
+                    Text(ResourceManager.shared.currentDataSet.infoText)
+                    Spacer()
                 }
+                .padding(20)
             }
             .navigationBarTitle("info.title")
-            .navigationBarItems(trailing: closeButton)
+            .navigationBarItems(trailing: doneButton)
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
 
-    private var closeButton: some View {
+    private var doneButton: some View {
         Button(action: {
             self.presentation.wrappedValue.dismiss()
         }, label: {
-            Image(systemName: "xmark")
-                .foregroundColor(Color(.label))
+            Text("button.done")
         })
-            .padding([.top, .leading, .bottom], 10)
     }
 }

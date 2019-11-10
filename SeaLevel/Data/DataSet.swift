@@ -1,11 +1,15 @@
 import MapKit
 
-enum DataSet: String {
+enum DataSet: String, CaseIterable {
     case londonSRTM
     case newYorkCitySRTM
 
     var resourceName: String {
         return rawValue
+    }
+
+    var index: Int {
+        return DataSet.allCases.firstIndex(of: self)!
     }
 
     // MARK: - Metadata
@@ -33,6 +37,15 @@ enum DataSet: String {
         switch self {
         case .londonSRTM, .newYorkCitySRTM:
             return String(key: "info.srtm.text")
+        }
+    }
+
+    var searchTitle: String {
+        switch self {
+        case .londonSRTM:
+            return String(key: "search.srtm.london")
+        case .newYorkCitySRTM:
+            return String(key: "search.srtm.nyc")
         }
     }
 }

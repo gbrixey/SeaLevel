@@ -1,10 +1,12 @@
 import SwiftUI
 
 struct LoadingView: View {
+    @ObservedObject private var loadingStepObservable = ResourceManager.shared.loadingStepObservable
 
     var body: some View {
         VStack(spacing: 20) {
             Text("loading")
+            Text(loadingStepObservable.loadingStep)
             ProgressView()
         }
         .padding(20)

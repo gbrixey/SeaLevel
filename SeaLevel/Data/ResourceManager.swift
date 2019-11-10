@@ -15,19 +15,40 @@ class ResourceManager {
     static let maxZForTileImages = 13
 
     let loadingObservable = LoadingObservable()
+    let loadingStepObservable = LoadingStepObservable()
     private(set) var progress = Progress()
     private(set) var error: Error?
     private(set) var currentDataSet = ResourceManager.defaultDataSet
 
-    func ensureInitialData() {
+    func requestDataSet(_ dataSet: DataSet) {
+        currentResourceRequest?.endAccessingResources()
+        currentDataSet = dataSet
+        let request = NSBundleResourceRequest(tags: [dataSet.resourceName])
+        currentResourceRequest = request
+        progress = request.progress
+        loadingStepObservable.loadingStep = String(key: "loading.step.downloading")
         loadingObservable.isLoading = true
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.unzipCurrentDataSet()
-            self.loadMaximumElevationMapForCurrentDataSet()
+        request.beginAccessingResources { error in
+            self.error = error
+            if error == nil {
+                // Reset progress manually here because it looks better in the UI.
+                // Otherwise it gets reset a fraction of a second later in the unzip method.
+                self.progress.completedUnitCount = 0
+                DispatchQueue.main.async {
+                    self.loadingStepObservable.loadingStep = String(key: "loading.step.decompressing")
+                }
+                self.unzipCurrentDataSet()
+                self.loadMaximumElevationMapForCurrentDataSet()
+            }
             DispatchQueue.main.async {
                 self.loadingObservable.isLoading = false
             }
         }
+    }
+
+    /// Request/unzip data on app launch.
+    func ensureInitialData() {
+        requestDataSet(currentDataSet)
     }
 
     /// Returns a tile image URL for the given tile coordinates and sea level setting.
@@ -57,11 +78,12 @@ class ResourceManager {
 
     // MARK: - Private
 
-    private static let defaultDataSet: DataSet = .londonSRTM
+    private static let defaultDataSet: DataSet = .newYorkCitySRTM
     private static var solidTileURL: URL { Bundle.main.url(forResource: "solid", withExtension: "png")! }
     private static var clearTileURL: URL { Bundle.main.url(forResource: "clear", withExtension: "png")! }
 
     private let fileManager = FileManager.default
+    private var currentResourceRequest: NSBundleResourceRequest?
 
     /// This dictionary stores maximum elevations for tiles in the current data set.
     /// The keys of the dictionary are created by combining the tile coordinates into a single integer.
@@ -91,9 +113,7 @@ class ResourceManager {
             if nsError.domain == NSCocoaErrorDomain && nsError.code == NSFileWriteFileExistsError {
                 return
             }
-            DispatchQueue.main.async {
-                self.error = error
-            }
+            self.error = error
         }
     }
 
@@ -128,8 +148,12 @@ class ResourceManager {
     }
 }
 
-// MARK: - LoadingObservable
+// MARK: - Observable Objects
 
 class LoadingObservable: ObservableObject {
     @Published fileprivate(set) var isLoading: Bool = false
+}
+
+class LoadingStepObservable: ObservableObject {
+    @Published fileprivate(set) var loadingStep: String = ""
 }

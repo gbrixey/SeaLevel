@@ -3,10 +3,13 @@ import MapKit
 /// Class that provides map tile overlay images showing areas that are under sea level
 class SeaLevelMapOverlay: MKTileOverlay {
 
+    let resourceManager: ResourceManager
+
     /// The current sea level.
     var seaLevel: Int = 0
 
-    init() {
+    init(resourceManager: ResourceManager) {
+        self.resourceManager = resourceManager
         super.init(urlTemplate: nil)
         minimumZ = ResourceManager.minZForTileImages
     }
@@ -14,7 +17,7 @@ class SeaLevelMapOverlay: MKTileOverlay {
     // MARK: - MKTileOverlay Overrides
 
     override func url(forTilePath path: MKTileOverlayPath) -> URL {
-        return ResourceManager.shared.tileImageURL(forTilePath: path, seaLevel: seaLevel)
+        return resourceManager.tileImageURL(forTilePath: path, seaLevel: seaLevel)
     }
 
     override func loadTile(at path: MKTileOverlayPath, result: @escaping (Data?, Error?) -> Void) {

@@ -6,6 +6,7 @@ struct MapView: UIViewRepresentable {
     @Binding var mapShowsOverlays: Bool
     @Binding var mapShowsUserLocation: Bool
     @Binding var programmaticMapRegion: MKCoordinateRegion?
+    @EnvironmentObject private var resourceManager: ResourceManager
 
     /// The offset of the compass button's center point from the top right corner of the safe area.
     @Environment(\.compassButtonOffset) var compassButtonOffset: CGPoint
@@ -16,7 +17,7 @@ struct MapView: UIViewRepresentable {
 
     func makeUIView(context: Context) -> MapContainerView {
         let mapView = MKMapView()
-        mapView.setRegion(ResourceManager.shared.currentDataSet.region, animated: false)
+        mapView.setRegion(resourceManager.currentDataSet.region, animated: false)
         mapView.showsCompass = false
         mapView.isPitchEnabled = false
         mapView.delegate = context.coordinator
@@ -65,7 +66,7 @@ struct MapView: UIViewRepresentable {
 
         init(_ mapView: MapView) {
             self.mapView = mapView
-            overlay = SeaLevelMapOverlay()
+            overlay = SeaLevelMapOverlay(resourceManager: mapView.resourceManager)
             renderer = MKTileOverlayRenderer(tileOverlay: overlay)
         }
 
@@ -79,7 +80,8 @@ struct MapView: UIViewRepresentable {
 
         private func mapViewShowsOverlays(_ mapView: MKMapView) -> Bool {
             // Case 1: The visible map area doesn't intersect the area with overlay data
-            if !mapView.visibleMapRect.intersects(ResourceManager.shared.currentDataSet.region.mapRect) {
+            let dataRect = self.mapView.resourceManager.currentDataSet.region.mapRect
+            if !mapView.visibleMapRect.intersects(dataRect) {
                 return false
             }
             // Case 2: If the user zooms out too far, the overlays will disappear.

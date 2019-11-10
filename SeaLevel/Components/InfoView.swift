@@ -3,6 +3,7 @@ import SwiftUI
 /// Modally presented view that contains some info about the app.
 struct InfoView: View {
     @Environment(\.presentationMode) var presentation
+    @EnvironmentObject private var resourceManager: ResourceManager
 
     var body: some View {
         NavigationView {
@@ -11,8 +12,8 @@ struct InfoView: View {
                     VStack(alignment: .leading, spacing: 15) {
                         Text("info.paragraph.one")
                         Text("info.current.data.title").bold()
-                        Text(ResourceManager.shared.currentDataSet.infoTitle)
-                        Text(ResourceManager.shared.currentDataSet.infoText)
+                        Text(resourceManager.currentDataSet.infoTitle)
+                        Text(resourceManager.currentDataSet.infoText)
                         Spacer()
                     }.padding()
                 }

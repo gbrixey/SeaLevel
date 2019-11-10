@@ -16,6 +16,7 @@
 		E1E51C9423737A1700E6EFB2 /* ResourceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E51C9323737A1700E6EFB2 /* ResourceManager.swift */; };
 		E1E51C9623737A3300E6EFB2 /* DataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E51C9523737A3300E6EFB2 /* DataSet.swift */; };
 		E1E51C982373A8DF00E6EFB2 /* londonSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1E51C972373A8DF00E6EFB2 /* londonSRTM.zip */; };
+		E1E51C9A2374D3EA00E6EFB2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E51C992374D3EA00E6EFB2 /* LoadingView.swift */; };
 		E1E9059E23643B14008EBEDE /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E1E9059D23643B14008EBEDE /* Localizable.strings */; };
 		E1E987AE2365525C008EBEDE /* solid.png in Resources */ = {isa = PBXBuildFile; fileRef = E1E987AD2365525C008EBEDE /* solid.png */; };
 		E1E9E43F235E0DD4008EBEDE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E9E43E235E0DD4008EBEDE /* AppDelegate.swift */; };
@@ -44,6 +45,7 @@
 		E1E51C9323737A1700E6EFB2 /* ResourceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceManager.swift; sourceTree = "<group>"; };
 		E1E51C9523737A3300E6EFB2 /* DataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSet.swift; sourceTree = "<group>"; };
 		E1E51C972373A8DF00E6EFB2 /* londonSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = londonSRTM.zip; sourceTree = "<group>"; };
+		E1E51C992374D3EA00E6EFB2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E1E9059D23643B14008EBEDE /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		E1E987AD2365525C008EBEDE /* solid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = solid.png; sourceTree = "<group>"; };
 		E1E9E43B235E0DD4008EBEDE /* SeaLevel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeaLevel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +136,7 @@
 				E1E9E4AF2362146D008EBEDE /* BlurView.swift */,
 				E1E9E4A62361F1C1008EBEDE /* ExpandingView.swift */,
 				E1E9E4A323610C9B008EBEDE /* InfoView.swift */,
+				E1E51C992374D3EA00E6EFB2 /* LoadingView.swift */,
 				E1E9E4942360EAF5008EBEDE /* MapView.swift */,
 				E1E9E4A1236101B8008EBEDE /* SeaLevelSlider.swift */,
 				E1126B16236B64F300931065 /* Transitions.swift */,
@@ -269,6 +272,7 @@
 				E1E9E4B02362146D008EBEDE /* BlurView.swift in Sources */,
 				E13AD4D2236CC74F008AE91E /* ActionButton.swift in Sources */,
 				E1126B15236B555600931065 /* LocalizedString.swift in Sources */,
+				E1E51C9A2374D3EA00E6EFB2 /* LoadingView.swift in Sources */,
 				E1E51C9423737A1700E6EFB2 /* ResourceManager.swift in Sources */,
 				E1E9E4A2236101B8008EBEDE /* SeaLevelSlider.swift in Sources */,
 				E1E9E4952360EAF5008EBEDE /* MapView.swift in Sources */,

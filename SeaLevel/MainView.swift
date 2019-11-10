@@ -8,7 +8,7 @@ struct MainView: View {
     @State private var mapShowsOverlays = true
     @State private var mapShowsUserLocation = false
     @State private var programmaticMapRegion: MKCoordinateRegion?
-    @ObservedObject private var resourceManager = ResourceManager.shared
+    @EnvironmentObject private var resourceManager: ResourceManager
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
@@ -39,8 +39,9 @@ struct MainView: View {
             }
             .animation(.easeInOut(duration: .defaultAnimationDuration))
             .padding([.top, .leading, .trailing], buttonPadding)
-
-            // Loading overlay goes here
+            if resourceManager.isLoading {
+                LoadingView()
+            }
         }
         .sheet(isPresented: $showInfoView) {
             InfoView()

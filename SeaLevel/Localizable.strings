@@ -4,7 +4,7 @@
 "error.message" = "Please try again later.";
 "error.dismiss" = "OK";
 "info.title" = "Sea Level Rise Viewer";
-"info.introduction" = "Move the slider to raise the mean sea level by up to 100 meters. The part of the map shaded in blue shows the area that would be below sea level, based on the selected surface elevation data set.";
+"info.introduction" = "Move the slider to raise the mean sea level by up to 100 meters. The map is then shaded blue to indicate which areas would be below sea level, based on the selected surface elevation data set.";
 "info.current.data.title" = "Current Data Set";
 "info.srtm.title.london" = "NASA Shuttle Radar Topography Mission (SRTM) - London";
 "info.srtm.title.nyc" = "NASA Shuttle Radar Topography Mission (SRTM) - New York City";

@@ -55,7 +55,6 @@ struct SearchView: View {
             }
         }
         .labelsHidden()
-        .border(Color(UIColor.systemGray3))
         .frame(maxWidth: .infinity)
     }
 }

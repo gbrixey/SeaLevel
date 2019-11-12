@@ -117,7 +117,67 @@ def create_srtm_tileset(min_tile_x, max_tile_x, min_tile_y, max_tile_y, dataset)
                      and in the file names of the individual tile images.
     '''
     (arr, min_latitude, min_longitude) = load_srtm_data_needed(min_tile_x, max_tile_x, min_tile_y, max_tile_y, 11)
-    # TODO: Figure out how to partially clear the tiles at zoom level 9 and 10
+    # For zoom levels 9 and 10, use the clear_px parameter to erase parts of the tile image
+    # so that the overlay exactly matches the area described by the range of tiles at zoom level 11.
+    min_tile_x_z9 = math.floor(min_tile_x / 4)
+    max_tile_x_z9 = math.floor(max_tile_x / 4)
+    min_tile_y_z9 = math.floor(min_tile_y / 4)
+    max_tile_y_z9 = math.floor(max_tile_y / 4)
+    for tile_x in range(min_tile_x_z9, max_tile_x_z9 + 1):
+        for tile_y in range(min_tile_y_z9, max_tile_y_z9 + 1):
+            clear_px = [0, 256, 0, 256]
+            if tile_x == min_tile_x_z9:
+                remainder = min_tile_x % 4
+                if remainder == 1:
+                    clear_px[0] = 64
+                elif remainder == 2:
+                    clear_px[0] = 128
+                elif remainder == 3:
+                    clear_px[0] = 192
+            if tile_x == max_tile_x_z9:
+                remainder = (max_tile_x + 1) % 4
+                if remainder == 1:
+                    clear_px[1] = 64
+                elif remainder == 2:
+                    clear_px[1] = 128
+                elif remainder == 3:
+                    clear_px[1] = 192
+            if tile_y == min_tile_y_z9:
+                remainder = min_tile_y % 4
+                if remainder == 1:
+                    clear_px[2] = 64
+                elif remainder == 2:
+                    clear_px[2] = 128
+                elif remainder == 3:
+                    clear_px[2] = 192
+            if tile_y == max_tile_y_z9:
+                remainder = (max_tile_y + 1) % 4
+                if remainder == 1:
+                    clear_px[3] = 64
+                elif remainder == 2:
+                    clear_px[3] = 128
+                elif remainder == 3:
+                    clear_px[3] = 192
+            clear_px = None if clear_px == [0, 256, 0, 256] else tuple(clear_px)
+            create_tile_images(tile_x, tile_y, 9, arr, min_latitude, min_longitude, dataset, clear_px = clear_px)
+    min_tile_x_z10 = math.floor(min_tile_x / 2)
+    max_tile_x_z10 = math.floor(max_tile_x / 2)
+    min_tile_y_z10 = math.floor(min_tile_y / 2)
+    max_tile_y_z10 = math.floor(max_tile_y / 2)
+    for tile_x in range(min_tile_x_z10, max_tile_x_z10 + 1):
+        for tile_y in range(min_tile_y_z10, max_tile_y_z10 + 1):
+            clear_px = [0, 256, 0, 256]
+            if tile_x == min_tile_x_z10 and min_tile_x % 2 == 1:
+                clear_px[0] = 128
+            if tile_x == max_tile_x_z10 and (max_tile_x + 1) % 2 == 1:
+                clear_px[1] = 128
+            if tile_y == min_tile_y_z10 and min_tile_y % 2 == 1:
+                clear_px[2] = 128
+            if tile_y == max_tile_y_z10 and (max_tile_y + 1) % 2 == 1:
+                clear_px[3] = 128
+            clear_px = None if clear_px == [0, 256, 0, 256] else tuple(clear_px)
+            create_tile_images(tile_x, tile_y, 10, arr, min_latitude, min_longitude, dataset, clear_px = clear_px)
+    # Zoom levels 11, 12, and 13 are more straightforward since there is no need to use clear_px 
     for tile_x in range(min_tile_x, max_tile_x + 1):
         for tile_y in range(min_tile_y, max_tile_y + 1):
             create_tile_images(tile_x, tile_y, 11, arr, min_latitude, min_longitude, dataset)
@@ -170,11 +230,11 @@ def create_tile_images(x, y, z, arr, arr_lat, arr_lon, dataset, overwrite = Fals
         # Skip creating the image, since we can use a single blank tile instead of creating lots of separate ones.
         if fill_count == 0:
             continue
-        # If the tile is entirely below sea level, the image would be completely solid.
+        # If the tile is entirely below sea level and clear_px is null, the image will be completely solid.
         # To save disk space, stop creating images at this point and add the tile coordinates
         # along with the current elevation to the maximum elevation array.
         # This maximum elevation array can be used by the app to determine when to show a solid tile.
-        if fill_count == tile_pixel_elevation_array.size:
+        if clear_px == None and fill_count == tile_pixel_elevation_array.size:
             max_elevation_filename = '{0}/{1}_solid.dat'.format(root_tiles_directory, dataset)
             max_elevation_entry = numpy.array([z, x, y, sea_level + 1], dtype = numpy.uint16)
             try:

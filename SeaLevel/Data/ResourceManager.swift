@@ -36,7 +36,7 @@ class ResourceManager {
                 // Otherwise it gets reset a fraction of a second later in the unzip method.
                 self.progress.completedUnitCount = 0
                 DispatchQueue.main.async {
-                    self.loadingStepObservable.loadingStep = String(key: "loading.step.decompressing")
+                    self.loadingStepObservable.loadingStep = String(key: "loading.step.preparing")
                 }
                 self.unzipCurrentDataSet()
                 self.loadMaximumElevationMapForCurrentDataSet()

@@ -1,6 +1,7 @@
 import MapKit
 
 enum DataSet: String, CaseIterable {
+    case jakartaSRTM
     case londonSRTM
     case miamiSRTM
     case newYorkCitySRTM
@@ -18,6 +19,8 @@ enum DataSet: String, CaseIterable {
 
     var region: MKCoordinateRegion {
         switch self {
+        case .jakartaSRTM:
+            return MKCoordinateRegion(latitude: -6.315299, longitude: 106.787109, latDelta: 0.7, lonDelta: 0.5)
         case .londonSRTM:
             return MKCoordinateRegion(latitude: 51.508742, longitude: -0.175781, latDelta: 0.7, lonDelta: 0.7)
         case .miamiSRTM:
@@ -28,25 +31,36 @@ enum DataSet: String, CaseIterable {
     }
 
     var infoTitle: String {
+        let format: String
         switch self {
-        case .londonSRTM:
-            return String(key: "info.srtm.title.london")
-        case .miamiSRTM:
-            return String(key: "info.srtm.title.miami")
-        case .newYorkCitySRTM:
-            return String(key: "info.srtm.title.nyc")
+        case .jakartaSRTM, .londonSRTM, .miamiSRTM, .newYorkCitySRTM:
+            format = String(key: "info.srtm.title.format")
         }
+        let title: String
+        switch self {
+        case .jakartaSRTM:
+            title = String(key: "info.srtm.title.jakarta")
+        case .londonSRTM:
+            title = String(key: "info.srtm.title.london")
+        case .miamiSRTM:
+            title = String(key: "info.srtm.title.miami")
+        case .newYorkCitySRTM:
+            title = String(key: "info.srtm.title.nyc")
+        }
+        return String(format: format, title)
     }
 
     var infoText: String {
         switch self {
-        case .londonSRTM, .miamiSRTM, .newYorkCitySRTM:
+        case .jakartaSRTM, .londonSRTM, .miamiSRTM, .newYorkCitySRTM:
             return String(key: "info.srtm.text")
         }
     }
 
     var searchTitle: String {
         switch self {
+        case .jakartaSRTM:
+            return String(key: "search.srtm.jakarta")
         case .londonSRTM:
             return String(key: "search.srtm.london")
         case .miamiSRTM:

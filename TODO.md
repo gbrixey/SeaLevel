@@ -2,6 +2,73 @@
 
 - Save last selected elevation and dataset to user defaults?
 - Show a tutorial view on the first app launch?
+- Add additional SRTM tilesets:
+    - Amsterdam
+    - Athens
+    - Auckland
+    - Baltimore
+    - Bangkok
+    - Barcelona
+    - Beirut
+    - Berlin
+    - Boston
+    - Brussels
+    - Buenos Aires
+    - Cairo
+    - Cape Town
+    - Chennai
+    - Copenhagen
+    - Dhaka
+    - Dubai
+    - Dublin
+    - Edinburgh
+    - Guangzhou
+    - Hamburg
+    - Hanoi
+    - Havana
+    - Ho Chi Minh City
+    - Hong Kong
+    - Honolulu
+    - Houston
+    - Istanbul
+    - Karachi
+    - Kolkata
+    - Kuala Lumpur
+    - Lagos
+    - Lima
+    - Lisbon
+    - Los Angeles
+    - Manila
+    - Melbourne
+    - Montreal
+    - Mumbai
+    - New Orleans
+    - Osaka
+    - Panama City
+    - Paris
+    - Philadelphia
+    - Portland
+    - Pyongyang
+    - Rio de Janeiro
+    - Rome
+    - San Diego
+    - San Francisco
+    - San Juan
+    - Santo Domingo
+    - Seattle
+    - Seoul
+    - Shanghai
+    - Shenzhen
+    - Singapore
+    - Stockholm
+    - Sydney
+    - Taipei
+    - Tel Aviv
+    - Tokyo
+    - Vancouver, B.C.
+    - Venice
+    - Washington, D.C.
+    - Wellington
 - Add additional datasets
     - Advanced Spaceborne Thermal Emission and Reflection Radiometer (ASTER)
     - CoastalDEM data from Climate Central

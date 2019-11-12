@@ -4,6 +4,7 @@ import math
 import numpy
 import sqlite3
 from PIL import Image
+from datetime import datetime
 
 # A SRTM granule is a square array with this many elements along each axis.
 SRTM_GRANULE_SIZE = 3601
@@ -114,15 +115,17 @@ def create_srtm_tileset(min_tile_x, max_tile_x, min_tile_y, max_tile_y, dataset)
     min_tile_y (int): Minimum Y value of the range of tiles covering the desired area at zoom level 11.
     max_tile_y (int): Maximum Y value of the range of tiles covering the desired area at zoom level 11.
     dataset (str):    The name of the dataset. This string is used in the directory where the tile images will be saved
-                     and in the file names of the individual tile images.
+                      and in the file names of the individual tile images.
     '''
-    (arr, min_latitude, min_longitude) = load_srtm_data_needed(min_tile_x, max_tile_x, min_tile_y, max_tile_y, 11)
-    # For zoom levels 9 and 10, use the clear_px parameter to erase parts of the tile image
-    # so that the overlay exactly matches the area described by the range of tiles at zoom level 11.
+    start_time = datetime.now()
+    print('Starting {0} tileset at {1}'.format(dataset, start_time.strftime('%H:%M:%S')))
     min_tile_x_z9 = math.floor(min_tile_x / 4)
     max_tile_x_z9 = math.floor(max_tile_x / 4)
     min_tile_y_z9 = math.floor(min_tile_y / 4)
     max_tile_y_z9 = math.floor(max_tile_y / 4)
+    (arr, min_latitude, min_longitude) = load_srtm_data_needed(min_tile_x_z9, max_tile_x_z9, min_tile_y_z9, max_tile_y_z9, 9)
+    # For zoom levels 9 and 10, use the clear_px parameter to erase parts of the tile image
+    # so that the overlay exactly matches the area described by the range of tiles at zoom level 11.
     for tile_x in range(min_tile_x_z9, max_tile_x_z9 + 1):
         for tile_y in range(min_tile_y_z9, max_tile_y_z9 + 1):
             clear_px = [0, 256, 0, 256]
@@ -163,6 +166,15 @@ def create_srtm_tileset(min_tile_x, max_tile_x, min_tile_y, max_tile_y, dataset)
     for tile_x in range((min_tile_x * 4), (max_tile_x * 4) + 4):
         for tile_y in range((min_tile_y * 4), (max_tile_y * 4) + 4):
             create_tile_images(tile_x, tile_y, 13, arr, min_latitude, min_longitude, dataset)
+    end_time = datetime.now()
+    print('Finished {0} tileset at {1}'.format(dataset, end_time.strftime('%H:%M:%S')))
+    seconds = (end_time - start_time).seconds
+    minutes = math.floor(seconds / 60)
+    if minutes > 60:
+        hours = math.floor(minutes / 60)
+        print('{0} hours, {1} minutes, {2} seconds'.format(hours, minutes % 60, seconds % 60))
+    else:
+        print('{0} minutes, {1} seconds'.format(minutes, seconds % 60))
 
 def create_tile_images(x, y, z, arr, arr_lat, arr_lon, dataset, overwrite = False, clear_px = None):
     '''Creates tile images for a single tile at the given X and Y values and zoom level (z).

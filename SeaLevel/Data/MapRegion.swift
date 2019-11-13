@@ -2,11 +2,6 @@ import MapKit
 
 extension MKCoordinateRegion {
 
-    init(latitude: CLLocationDegrees, longitude: CLLocationDegrees, latDelta: CLLocationDegrees, lonDelta: CLLocationDegrees) {
-        self.init(center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
-                  span: MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta))
-    }
-
     /// Converts the coordinate region to a map rect.
     var mapRect: MKMapRect {
         let topLeft = CLLocationCoordinate2D(latitude: center.latitude + span.latitudeDelta / 2,

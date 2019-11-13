@@ -13,6 +13,7 @@
 		E1126B15236B555600931065 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1126B14236B555600931065 /* LocalizedString.swift */; };
 		E1126B17236B64F300931065 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1126B16236B64F300931065 /* Transitions.swift */; };
 		E13AD4D2236CC74F008AE91E /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13AD4D1236CC74F008AE91E /* ActionButton.swift */; };
+		E1979E7A237C8F5C00872878 /* tokyoSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1979E79237C8F5C00872878 /* tokyoSRTM.zip */; settings = {ASSET_TAGS = (tokyoSRTM, ); }; };
 		E1E51C8A2373366F00E6EFB2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E51C892373366F00E6EFB2 /* LocationManager.swift */; };
 		E1E51C8C23736FBD00E6EFB2 /* newYorkCitySRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1E51C8B23736FBD00E6EFB2 /* newYorkCitySRTM.zip */; settings = {ASSET_TAGS = (newYorkCitySRTM, ); }; };
 		E1E51C912373724E00E6EFB2 /* ZIPFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E1E51C902373724E00E6EFB2 /* ZIPFoundation.framework */; };
@@ -45,6 +46,7 @@
 		E1126B14236B555600931065 /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		E1126B16236B64F300931065 /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
 		E13AD4D1236CC74F008AE91E /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		E1979E79237C8F5C00872878 /* tokyoSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = tokyoSRTM.zip; sourceTree = "<group>"; };
 		E1E51C892373366F00E6EFB2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E1E51C8B23736FBD00E6EFB2 /* newYorkCitySRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = newYorkCitySRTM.zip; sourceTree = "<group>"; };
 		E1E51C902373724E00E6EFB2 /* ZIPFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ZIPFoundation.framework; path = Carthage/Build/iOS/ZIPFoundation.framework; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				E1E51C972373A8DF00E6EFB2 /* londonSRTM.zip */,
 				E10D82CE237AFF7C004EF501 /* miamiSRTM.zip */,
 				E1E51C8B23736FBD00E6EFB2 /* newYorkCitySRTM.zip */,
+				E1979E79237C8F5C00872878 /* tokyoSRTM.zip */,
 			);
 			path = Tiles;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 					londonSRTM,
 					miamiSRTM,
 					newYorkCitySRTM,
+					tokyoSRTM,
 				);
 				LastSwiftUpdateCheck = 1110;
 				LastUpgradeCheck = 1110;
@@ -242,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1979E7A237C8F5C00872878 /* tokyoSRTM.zip in Resources */,
 				E1E9059E23643B14008EBEDE /* Localizable.strings in Resources */,
 				E1E987AE2365525C008EBEDE /* solid.png in Resources */,
 				E10D82D1237B5036004EF501 /* jakartaSRTM.zip in Resources */,

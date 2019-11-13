@@ -1,11 +1,18 @@
 Web Mercator tile ranges of existing data sets at zoom level 11
 Note: (max_x, max_y) represents the origin of the bottom-right tile.
 The bottom right corner of the entire area is at (max_x + 1, max_y + 1).
+If the line ends with "done" it means the SRTM tiles have been created.
 
 Name,min_x,max_x,min_y,max_y
+Bangkok,1594,1597,943,946
+Dubai,1336,1340,874,877
 Hong Kong and Shenzhen,1671,1674,891,894
-Jakarta,1630,1632,1058,1061
-London,1021,1024,679,682
-Miami,566,568,864,874
-New York City,601,604,768,771
-Tokyo,1817,1821,804,808
+Jakarta,1630,1632,1058,1061,done
+London,1021,1024,679,682,done
+Miami,566,568,864,874,done
+New York City,601,604,768,771,done
+Paris,1036,1038,703,705
+Shanghai,1713,1717,835,838
+Singapore,1613,1616,1015,1017
+Sydney,1880,1884,1227,1230
+Tokyo,1817,1821,804,808,done

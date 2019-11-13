@@ -343,3 +343,52 @@ def visualize(arr):
     enhanced_arr = (arr * 2.55).astype(numpy.int8)
     image = Image.fromarray(enhanced_arr, mode = 'L')
     image.show()
+
+def ranges():
+    '''Returns a list of tuples containing the tile range data
+    found in range.txt'''
+    range_tuples = []
+    with open('range.txt') as range_file:
+        range_text = range_file.read()
+    range_lines = range_text.split('\n')
+    for line in range_lines:
+        elements = line.split(',')
+        if len(elements) != 5 or not elements[1].isdigit():
+            continue
+        range_tuples.append((elements[0], int(elements[1]), int(elements[2]), int(elements[3]), int(elements[4])))
+    return range_tuples
+
+def print_granules_needed_for_ranges():
+    '''Prints a list of SRTM granules needed for all the tilesets
+    defined in range.txt. The filename format used is the one found
+    on the NASA Earthdata Search site and not the same as the one 
+    used by the srtm_granule_path function. Some of the granules printed
+    may not actually exist on the NASA site.
+    '''
+    granules = set()
+    for range_tuple in ranges():
+        name, min_tile_x_z11, max_tile_x_z11, min_tile_y_z11, max_tile_y_z11 = range_tuple
+        min_tile_x_z9 = math.floor(min_tile_x_z11 / 4)
+        max_tile_x_z9 = math.floor(max_tile_x_z11 / 4)
+        min_tile_y_z9 = math.floor(min_tile_y_z11 / 4)
+        max_tile_y_z9 = math.floor(max_tile_y_z11 / 4)
+        range_tuple = srtm_coordinate_range_needed(min_tile_x_z9, max_tile_x_z9, min_tile_y_z9, max_tile_y_z9, 9)
+        (min_longitude, max_longitude, min_latitude, max_latitude) = range_tuple
+        for latitude in range(max_latitude, min_latitude - 1, -1):
+            for longitude in range(min_longitude, max_longitude + 1):
+                granules.add((latitude, longitude))
+    for granule in sorted(list(granules)):
+        print(srtm_granule_path(granule[0], granule[1]).replace('.hgt', '.SRTMGL1.hgt.zip'))
+
+def print_latitude_longitude_ranges():
+    '''For each tile range defined in range.txt, this function prints the
+    latitude and longitude of the center and the latitude and longitude span.
+    '''
+    for range_tuple in ranges():
+        name, min_tile_x_z11, max_tile_x_z11, min_tile_y_z11, max_tile_y_z11 = range_tuple
+        center_lat = tile_latitude((min_tile_y_z11 + max_tile_y_z11 + 1) / 2, 11)
+        center_lon = tile_longitude((min_tile_x_z11 + max_tile_x_z11 + 1) / 2, 11)
+        lat_span = tile_latitude(min_tile_y_z11, 11) - tile_latitude(max_tile_y_z11 + 1, 11)
+        lon_span = tile_longitude(max_tile_x_z11 + 1, 11) - tile_longitude(min_tile_x_z11, 11)
+        print('{0:>22}: {1:11.6f}, {2:11.6f}, {3:.3f}, {4:.3f}'.format(name, center_lat, center_lon, lat_span, lon_span))
+

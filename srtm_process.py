@@ -3,7 +3,9 @@ import glob
 import math
 import numpy
 import sqlite3
+import requests
 from PIL import Image
+from io import BytesIO
 from datetime import datetime
 
 # A SRTM granule is a square array with this many elements along each axis.
@@ -35,7 +37,8 @@ def tile_x(longitude, z):
 
     Returns:
     float: The X value for the given longitude, in floating-point format.
-           Should be rounded down to find the X value of the tile containing the given longitude.
+           Should be rounded down to find the X value of the tile containing
+           the given longitude.
     '''
     return (2 ** z) * ((longitude / 360) + 0.5)
 
@@ -44,19 +47,22 @@ def tile_y(latitude, z):
 
     Returns:
     float: The Y value for the given latitude, in floating-point format.
-           Should be rounded down to find the Y value of the tile containing the given latitude.
+           Should be rounded down to find the Y value of the tile containing
+           the given latitude.
     '''
     pi = math.pi
     return (2 ** (z - 1) / pi) * (pi - math.log(math.tan(pi * (0.25 + (latitude / 360)))))
 
 def srtm_granule_path(latitude, longitude):
-    '''Returns the file name for the SRTM granule at the given latitude and longitude, according to the format NASA uses.'''
+    '''Returns the file name for the SRTM granule at the given
+    latitude and longitude, according to the format NASA uses.'''
     latitude_prefix = 'N' if latitude >= 0 else 'S'
     longitude_prefix = 'E' if longitude >= 0 else 'W'
     return '{0}{1:02}{2}{3:03}.hgt'.format(latitude_prefix, abs(latitude), longitude_prefix, abs(longitude))
 
 def srtm_coordinate_range_needed(min_tile_x, max_tile_x, min_tile_y, max_tile_y, z):
-    '''Returns the range of latitude and longitude for the SRTM data needed to create the given range of tiles.'''
+    '''Returns the range of latitude and longitude for the SRTM data granules
+    needed to create images for the given range of tiles.'''
     min_longitude = math.floor(tile_longitude(min_tile_x, z))
     max_longitude = math.floor(tile_longitude(max_tile_x + 1, z))
     min_latitude = math.floor(tile_latitude(max_tile_y + 1, z))
@@ -64,8 +70,9 @@ def srtm_coordinate_range_needed(min_tile_x, max_tile_x, min_tile_y, max_tile_y,
     return (min_longitude, max_longitude, min_latitude, max_latitude)
 
 def load_srtm_data_needed(min_tile_x, max_tile_x, min_tile_y, max_tile_y, z):
-    '''Loads the data needed to create the given range of tiles into a single numpy array.
-    Returns the array of data along with the latitude and longitude of the lower left corner of the array.'''
+    '''Loads the data needed to create the given range of tile images.
+    Returns the array of data along with the latitude and longitude
+    of the lower left corner of the array.'''
     coordinate_range_tuple = srtm_coordinate_range_needed(min_tile_x, max_tile_x, min_tile_y, max_tile_y, z)
     (min_longitude, max_longitude, min_latitude, max_latitude) = coordinate_range_tuple
     longitude_range = (max_longitude - min_longitude) + 1
@@ -106,15 +113,20 @@ def process_srtm_granule(latitude, longitude):
     return granule
 
 def create_srtm_tileset(min_tile_x, max_tile_x, min_tile_y, max_tile_y, dataset):
-    '''This function creates tile images between zoom levels 9 and 13 for a given area.
-    The area is described by a range of tile coordinates at zoom level 11.
+    '''This function creates tile images between zoom levels 9 and 13
+    for a given area described by a range of tile coordinates at zoom level 11.
 
     Parameters:
-    min_tile_x (int): Minimum X value of the range of tiles covering the desired area at zoom level 11.
-    max_tile_x (int): Maximum X value of the range of tiles covering the desired area at zoom level 11.
-    min_tile_y (int): Minimum Y value of the range of tiles covering the desired area at zoom level 11.
-    max_tile_y (int): Maximum Y value of the range of tiles covering the desired area at zoom level 11.
-    dataset (str):    The name of the dataset. This string is used in the directory where the tile images will be saved
+    min_tile_x (int): Minimum X value of the range of tiles
+                      covering the desired area at zoom level 11.
+    max_tile_x (int): Maximum X value of the range of tiles
+                      covering the desired area at zoom level 11.
+    min_tile_y (int): Minimum Y value of the range of tiles
+                      covering the desired area at zoom level 11.
+    max_tile_y (int): Maximum Y value of the range of tiles
+                      covering the desired area at zoom level 11.
+    dataset (str):    The name of the dataset. This string is used in the name of
+                      the directory where the tile images will be saved
                       and in the file names of the individual tile images.
     '''
     start_time = datetime.now()
@@ -177,7 +189,8 @@ def create_srtm_tileset(min_tile_x, max_tile_x, min_tile_y, max_tile_y, dataset)
         print('{0} minutes, {1} seconds'.format(minutes, seconds % 60))
 
 def create_tile_images(x, y, z, arr, arr_lat, arr_lon, dataset, overwrite = False, clear_px = None):
-    '''Creates tile images for a single tile at the given X and Y values and zoom level (z).
+    '''Creates tile images for a single tile
+    at the given X and Y values and zoom level (z).
 
     Parameters:
     x (int):             X coordinate of the tile.
@@ -186,12 +199,15 @@ def create_tile_images(x, y, z, arr, arr_lat, arr_lon, dataset, overwrite = Fals
     arr (numpy.ndarray): An array of arcsecond elevation values.
     arr_lat (int):       Latitude of the lower-left corner of the array.
     arr_lon (int):       Longitude of the lower-left corner of the array.
-    dataset (str):       Name of the dataset. This string is used in the directory where the tile images will be saved
+    dataset (str):       Name of the dataset. This string is used in the name of
+                         the directory where the tile images will be saved
                          and in the file names of the individual tile images.
-    overwrite (bool):    If False, then the method will return early without creating any tile images
-                         if any tile images already exist matching the given x, y, and z coordinates and dataset name.
-    clear_px (tuple):    A four-member tuple used to make certain parts of the tile images blank.
-                         The first two members of the tuple are 
+    overwrite (bool):    If False, then the method will return early without
+                         creating any tile images if any tile images already in
+                         the destination directory, matching the given x, y, and z
+                         coordinates and dataset name.
+    clear_px (tuple):    A four-member tuple used to make certain parts of the
+                         tile images blank. 
     '''
     root_tiles_directory = 'SeaLevel/Tiles/{0}'.format(dataset)
     tile_directory = '{0}/{1}/{2}'.format(root_tiles_directory, z, x)
@@ -248,7 +264,8 @@ def create_tile_images(x, y, z, arr, arr_lat, arr_lon, dataset, overwrite = Fals
         image_rgb_array.fill(0)
 
 def pixel_elevation(pixel_x, pixel_y, z, arr, arr_lat, arr_lon):
-    '''Calculate the approximate elevation value of the tile pixel at the given coordinates.
+    '''Calculate the approximate elevation value of the tile pixel
+    at the given coordinates.
 
     Parameters:
     pixel_x (float):     Web Mercator X coordinate of the pixel
@@ -290,8 +307,34 @@ def pixel_elevation(pixel_x, pixel_y, z, arr, arr_lat, arr_lon):
     # Divide the total (elevation * degree area) number by the area of the pixel for the average elevation value.
     return total_elevation_multiplied_by_degree_area / (pixel_latitude_span * pixel_longtude_span)
 
+def open_street_map_image(min_tile_x, max_tile_x, min_tile_y, max_tile_y, z):
+    '''Returns a PIL image created from OpenStreetMap tiles
+    with the given range of coordinates. This is useful for figuring
+    out the range of tiles needed to show a given city.
+    '''
+    tile_span_x = (max_tile_x - min_tile_x) + 1
+    tile_span_y = (max_tile_y - min_tile_y) + 1
+    image_size = (tile_span_x * TILE_SIZE, tile_span_y * TILE_SIZE)
+    image = Image.new('RGB', image_size)
+    for tile_x in range(min_tile_x, max_tile_x + 1):
+        for tile_y in range(min_tile_y, max_tile_y + 1):
+            url = 'https://tile.openstreetmap.org/{0}/{1}/{2}.png'.format(z, tile_x, tile_y)
+            # OpenStreetMap has blocked the default python requests user agent,
+            # so use some other agent
+            headers = {'user-agent': 'Cassini/1.0.22'}
+            response = requests.get(url, headers = headers)
+            if response.status_code != 200:
+                print('Failed to get tile: {0} with response code:'.format(url))
+                continue
+            tile_image = Image.open(BytesIO(response.content))
+            pixel_x = (tile_x - min_tile_x) * TILE_SIZE
+            pixel_y = (tile_y - min_tile_y) * TILE_SIZE
+            image.paste(tile_image, (pixel_x, pixel_y))
+    return image
+
 def visualize(arr):
-    '''Displays a PIL image representing the given array. This is useful for debugging purposes.
+    '''Displays a PIL image representing the given array.
+    This is useful for debugging purposes.
 
     Parameters:
     arr (numpy.ndarray): An array of integers between 0 and 100.

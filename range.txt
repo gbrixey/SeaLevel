@@ -1,0 +1,11 @@
+Web Mercator tile ranges of existing data sets at zoom level 11
+Note: (max_x, max_y) represents the origin of the bottom-right tile.
+The bottom right corner of the entire area is at (max_x + 1, max_y + 1).
+
+Name,min_x,max_x,min_y,max_y
+Hong Kong and Shenzhen,1671,1674,891,894
+Jakarta,1630,1632,1058,1061
+London,1021,1024,679,682
+Miami,566,568,864,874
+New York City,601,604,768,771
+Tokyo,1817,1821,804,808

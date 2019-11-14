@@ -3,14 +3,14 @@
 - Save last selected elevation and dataset to user defaults?
 - Show a tutorial view on the first app launch?
 - Add additional SRTM tilesets (• means I have recorded a tile range for this area)
-    - Amsterdam
+    • Amsterdam
     - Athens
     - Auckland
     • Bangkok
-    - Barcelona
+    • Barcelona
     - Berlin
-    - Brussels
-    - Buenos Aires
+    • Brussels
+    • Buenos Aires
     - Cairo
     - Cape Town
     - Chennai
@@ -24,29 +24,29 @@
     - Havana
     - Ho Chi Minh City
     • Hong Kong and Shenzhen
-    - Istanbul
+    • Istanbul
     - Karachi
     - Kolkata
-    - Kuala Lumpur
-    - Lagos
+    • Kuala Lumpur
+    • Lagos
     - Lima
     - Lisbon
     - Manila
     - Melbourne
     - Montreal
-    - Mumbai
+    • Mumbai
     - Osaka
     - Panama City
     • Paris
     - Pyongyang
-    - Rio de Janeiro
+    • Rio de Janeiro
     - Rome
-    - Seoul
+    • Seoul
     • Shanghai
     • Singapore
     - Stockholm
     • Sydney
-    - Taipei
+    • Taipei
     - Tel Aviv
     - Venice
 - Add additional datasets

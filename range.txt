@@ -4,15 +4,26 @@ The bottom right corner of the entire area is at (max_x + 1, max_y + 1).
 If the line ends with "done" it means the SRTM tiles have been created.
 
 Name,min_x,max_x,min_y,max_y
+Amsterdam,1049,1053,672,674
 Bangkok,1594,1597,943,946
+Barcelona,1034,1037,763,765
+Brussels,1048,1049,686,687
+Buenos Aires,689,693,1232,1235
 Dubai,1336,1340,874,877
 Hong Kong and Shenzhen,1671,1674,891,894
+Istanbul,1186,1191,765,769
 Jakarta,1630,1632,1058,1061,done
+Kuala Lumpur,1599,1603,1005,1007
+Lagos,1041,1044,985,987
 London,1021,1024,679,682,done
 Miami,566,568,864,874,done
+Mumbai,1437,1440,911,914
 New York City,601,604,768,771,done
 Paris,1036,1038,703,705
+Rio de Janeiro,775,779,1156,1159
+Seoul,1742,1747,792,794
 Shanghai,1713,1717,835,838
 Singapore,1613,1616,1015,1017
 Sydney,1880,1884,1227,1230
+Taipei,1713,1716,875,877
 Tokyo,1817,1821,804,808,done

@@ -70,7 +70,10 @@ struct MapView: UIViewRepresentable {
         }
 
         func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
-            self.mapView.mapShowsOverlays = mapViewShowsOverlays(mapView)
+            // Make this asynchronous to avoid the "Modifying state during view update" error.
+            DispatchQueue.main.async {
+                self.mapView.mapShowsOverlays = self.mapViewShowsOverlays(mapView)
+            }
         }
 
         func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {

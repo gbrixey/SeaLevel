@@ -15,7 +15,7 @@
 "info.srtm.text" = "Radar measurements taken from Space Shuttle Endeavor in February 2000. SRTM data provides surface elevation at a resolution of one arcsecond (about 30 meters). The elevation measurements in this data set are generally higher than ground level since they are not corrected for the presence of tall buildings, trees, etc.";
 "loading" = "Loading…";
 "loading.step.downloading" = "Downloading data (1/2)";
-"loading.step.preparing" = "Preparing data (2/2)";
+"loading.step.preparing" = "Preparing map tiles (2/2)";
 "meters.format" = "%d m";
 "recenter.map.button" = "RE-CENTER MAP";
 "search.title" = "Select Data";

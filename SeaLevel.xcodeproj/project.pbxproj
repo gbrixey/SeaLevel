@@ -456,6 +456,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ON_DEMAND_RESOURCES_INITIAL_INSTALL_TAGS = newYorkCitySRTM;
 				PRODUCT_BUNDLE_IDENTIFIER = com.glenb.SeaLevel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -480,6 +481,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ON_DEMAND_RESOURCES_INITIAL_INSTALL_TAGS = newYorkCitySRTM;
 				PRODUCT_BUNDLE_IDENTIFIER = com.glenb.SeaLevel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;

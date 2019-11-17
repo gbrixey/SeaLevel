@@ -11,43 +11,44 @@
     - Berlin
     • Brussels
     • Buenos Aires
-    - Cairo
-    - Cape Town
+    • Cairo
+    • Cape Town
     - Chennai
     - Copenhagen
     - Dhaka
     • Dubai
     - Dublin
     - Edinburgh
-    - Guangzhou
+    • Guangzhou
     - Hanoi
     - Havana
-    - Ho Chi Minh City
+    • Ho Chi Minh City
     • Hong Kong and Shenzhen
     • Istanbul
     - Karachi
-    - Kolkata
+    • Kolkata
     • Kuala Lumpur
     • Lagos
     - Lima
     - Lisbon
-    - Manila
+    • Manila
     - Melbourne
     - Montreal
     • Mumbai
     - Osaka
-    - Panama City
+    • Panama City
     • Paris
+    • Phnom Penh
     - Pyongyang
     • Rio de Janeiro
     - Rome
     • Seoul
     • Shanghai
     • Singapore
-    - Stockholm
+    • Stockholm
     • Sydney
     • Taipei
-    - Tel Aviv
+    • Tel Aviv
     - Venice
 - Add additional datasets
     - Advanced Spaceborne Thermal Emission and Reflection Radiometer (ASTER)

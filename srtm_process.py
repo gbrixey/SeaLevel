@@ -358,7 +358,7 @@ def ranges():
         range_tuples.append((elements[0], int(elements[1]), int(elements[2]), int(elements[3]), int(elements[4])))
     return range_tuples
 
-def print_granules_needed_for_ranges():
+def granules_needed_for_ranges():
     '''Prints a list of SRTM granules needed for all the tilesets
     defined in range.txt. The filename format used is the one found
     on the NASA Earthdata Search site and not the same as the one 
@@ -377,8 +377,10 @@ def print_granules_needed_for_ranges():
         for latitude in range(max_latitude, min_latitude - 1, -1):
             for longitude in range(min_longitude, max_longitude + 1):
                 granules.add((latitude, longitude))
+    filenames = []
     for granule in sorted(list(granules)):
-        print(srtm_granule_path(granule[0], granule[1]).replace('.hgt', '.SRTMGL1.hgt.zip'))
+        filenames.append(srtm_granule_path(granule[0], granule[1]).replace('.hgt', '.SRTMGL1.hgt.zip'))
+    return filenames
 
 def print_latitude_longitude_ranges():
     '''For each tile range defined in range.txt, this function prints the

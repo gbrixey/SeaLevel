@@ -144,11 +144,15 @@ def create_srtm_tileset(min_tile_x, max_tile_x, min_tile_y, max_tile_y, dataset)
             if tile_x == min_tile_x_z9:
                 clear_px[0] = (min_tile_x % 4) * 64
             if tile_x == max_tile_x_z9:
-                clear_px[1] = ((max_tile_x + 1) % 4) * 64
+                remainder = (max_tile_x + 1) % 4
+                if remainder != 0:
+                    clear_px[1] = remainder * 64
             if tile_y == min_tile_y_z9:
                 clear_px[2] = (min_tile_y % 4) * 64
             if tile_y == max_tile_y_z9:
-                clear_px[3] = ((max_tile_y + 1) % 4) * 64
+                remainder = (max_tile_y + 1) % 4
+                if remainder != 0:
+                    clear_px[3] = remainder * 64
             clear_px = None if clear_px == [0, 256, 0, 256] else tuple(clear_px)
             create_tile_images(tile_x, tile_y, 9, arr, min_latitude, min_longitude, dataset, clear_px = clear_px)
     min_tile_x_z10 = math.floor(min_tile_x / 2)

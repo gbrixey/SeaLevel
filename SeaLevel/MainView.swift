@@ -10,6 +10,7 @@ struct MainView: View {
     @State private var mapShowsUserLocation = false
     @State private var programmaticMapRegion: MKCoordinateRegion?
     @ObservedObject private var seaLevelObservable = SeaLevelObservable()
+    @ObservedObject private var tutorialObservable = TutorialObservable()
     @ObservedObject private var loadingObservable = ResourceManager.shared.loadingObservable
 
     // MARK: - Body
@@ -28,7 +29,9 @@ struct MainView: View {
             }
             .animation(.easeInOut(duration: .defaultAnimationDuration))
             .padding([.top, .leading, .trailing], buttonPadding)
-            if loadingObservable.isLoading {
+            if !tutorialObservable.userHasFinishedTutorial {
+                TutorialView(userHasFinishedTutorial: $tutorialObservable.userHasFinishedTutorial)
+            } else if loadingObservable.isLoading {
                 LoadingView()
             }
         }
@@ -115,6 +118,17 @@ class SeaLevelObservable: ObservableObject {
 
     @UserDefaultsWrapped(key: "com.glenb.SeaLevel.MainView.seaLevel", defaultValue: 0)
     fileprivate(set) var seaLevel: Double {
+        willSet {
+            objectWillChange.send()
+        }
+    }
+}
+
+class TutorialObservable: ObservableObject {
+    let objectWillChange = PassthroughSubject<Void, Never>()
+
+    @UserDefaultsWrapped(key: "com.glenb.SeaLevel.MainView.userHasFinishedTutorial", defaultValue: false)
+    fileprivate(set) var userHasFinishedTutorial: Bool {
         willSet {
             objectWillChange.send()
         }

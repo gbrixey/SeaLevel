@@ -1,5 +1,6 @@
 "button.cancel" = "Cancel";
 "button.done" = "Done";
+"button.next" = "Next";
 "error.title" = "Error";
 "error.message" = "Please try again later.";
 "error.dismiss" = "OK";
@@ -120,3 +121,8 @@
 "search.telAvivSRTM" = "Tel Aviv";
 "search.tokyoSRTM" = "Tokyo";
 "search.veniceSRTM" = "Venice";
+"tutorial.title" = "Tutorial";
+"tutorial.sea.level" = "Press this button to show the sea level slider. You can move the slider to raise the mean sea level by up to 100 meters. The map is then shaded blue to indicate which areas would be below sea level, based on the current surface elevation data set.";
+"tutorial.location" = "Press this button to show your current location on the map.";
+"tutorial.search" = "Press this button to select a different elevation data set. This may require downloading additional data from the Internet.";
+"tutorial.info" = "Press this button to see some information about the app and the current data set.";

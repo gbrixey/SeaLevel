@@ -68,6 +68,8 @@
 "search.title" = "Select Data";
 "search.subtitle" = "Choose a new data set to display on the map.";
 "search.data.size.format" = "%.1f MB";
+"search.internet.warning" = "Note: You are not connected to the internet. Cannot download this data set.";
+"search.wifi.warning" = "Note: You are not connected to Wi-Fi. Download will use cellular data.";
 "search.amsterdamSRTM" = "Amsterdam";
 "search.athensSRTM" = "Athens";
 "search.aucklandSRTM" = "Auckland";

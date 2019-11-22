@@ -6,8 +6,6 @@
     - National Elevation Dataset (NED)
         - Coastal National Elevation Database (CoNED)
     - NOAA LIDAR data
-- Show a warning if the user turns on current location and their location is outside the data region?
-- Show a warning if the user tries to download data without a Wi-Fi connection?
 - Update info view:
     - Link to GitHub page?
     - Link to NASA SRTM page?

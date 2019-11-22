@@ -25,11 +25,6 @@ class ResourceManager {
         }
     }
 
-    init() {
-        let dataSetString = UserDefaults.standard.string(forKey: ResourceManager.currentDataSetUserDefaultsKey)
-        currentDataSet = DataSet(rawValue: dataSetString ?? "") ?? ResourceManager.defaultDataSet
-    }
-
     func requestDataSet(_ dataSet: DataSet) {
         currentResourceRequest?.endAccessingResources()
         currentDataSet = dataSet
@@ -109,6 +104,11 @@ class ResourceManager {
 
     private var currentDataSetDirectoryURL: URL? {
         return tilesURL?.appendingPathComponent(currentDataSet.resourceName)
+    }
+
+    private init() {
+        let dataSetString = UserDefaults.standard.string(forKey: ResourceManager.currentDataSetUserDefaultsKey)
+        currentDataSet = DataSet(rawValue: dataSetString ?? "") ?? ResourceManager.defaultDataSet
     }
 
     private func unzipCurrentDataSet() {

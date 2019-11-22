@@ -5,6 +5,7 @@ struct SearchView: View {
     @Environment(\.presentationMode) var presentation
     @Binding var programmaticMapRegion: MKCoordinateRegion?
     @State private var dataIndex = ResourceManager.shared.currentDataSet.index
+    @ObservedObject private var reachabilityObservable = ReachabilityManager.shared.observable
 
     var body: some View {
         NavigationView {
@@ -14,6 +15,13 @@ struct SearchView: View {
                 Text(selectedDataSet.infoTitle)
                 Text(dataSizeText)
                     .bold()
+                if !reachabilityObservable.isConnectedToInternet {
+                    Text("search.internet.warning")
+                        .bold()
+                } else if !reachabilityObservable.isConnectedToWifi {
+                    Text("search.wifi.warning")
+                        .bold()
+                }
                 Text(selectedDataSet.infoText)
                 Spacer()
             }
@@ -45,7 +53,8 @@ struct SearchView: View {
 
     private var doneButton: some View {
         Button(action: {
-            if self.selectedDataSet != ResourceManager.shared.currentDataSet {
+            if self.reachabilityObservable.isConnectedToInternet &&
+                self.selectedDataSet != ResourceManager.shared.currentDataSet {
                 self.programmaticMapRegion = self.selectedDataSet.region
                 ResourceManager.shared.requestDataSet(self.selectedDataSet)
             }

@@ -67,6 +67,7 @@
 "recenter.map.button" = "RE-CENTER MAP";
 "search.title" = "Select Data";
 "search.subtitle" = "Choose a new data set to display on the map.";
+"search.data.size.format" = "%.1f MB";
 "search.amsterdamSRTM" = "Amsterdam";
 "search.athensSRTM" = "Athens";
 "search.aucklandSRTM" = "Auckland";

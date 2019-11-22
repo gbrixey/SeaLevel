@@ -125,6 +125,64 @@ enum DataSet: String, CaseIterable {
                                   span: MKCoordinateSpan(latitudeDelta: tuple.2, longitudeDelta: tuple.3))
     }
 
+    /// Size of the data set in megabytes (base-10)
+    var size: Double {
+        switch self {
+        case .amsterdamSRTM:    return 10.4
+        case .athensSRTM:       return 28.3
+        case .aucklandSRTM:     return 53.3
+        case .bangkokSRTM:      return 27.2
+        case .barcelonaSRTM:    return 13.4
+        case .berlinSRTM:       return 31.5
+        case .brusselsSRTM:     return 10.0
+        case .buenosAiresSRTM:  return 28.9
+        case .cairoSRTM:        return 26.3
+        case .capeTownSRTM:     return 27.1
+        case .chennaiSRTM:      return 17.3
+        case .copenhagenSRTM:   return 19.1
+        case .dhakaSRTM:        return 15.9
+        case .dubaiSRTM:        return 35.1
+        case .dublinSRTM:       return 18.9
+        case .edinburghSRTM:    return 10.7
+        case .guangzhouSRTM:    return 64.1
+        case .hanoiSRTM:        return 29.1
+        case .havanaSRTM:       return 13.8
+        case .hoChiMinhCitySRTM:return 58.7
+        case .hongKongSRTM:     return 61.9
+        case .istanbulSRTM:     return 63.8
+        case .jakartaSRTM:      return 19.9
+        case .karachiSRTM:      return 28.5
+        case .kolkataSRTM:      return 27.0
+        case .kualaLumpurSRTM:  return 43.2
+        case .lagosSRTM:        return 30.3
+        case .limaSRTM:         return 10.7
+        case .lisbonSRTM:       return 33.7
+        case .londonSRTM:       return 34.6
+        case .manilaSRTM:       return 25.9
+        case .melbourneSRTM:    return 7.1
+        case .miamiSRTM:        return 49.1
+        case .montrealSRTM:     return 29.3
+        case .mumbaiSRTM:       return 47.8
+        case .newYorkCitySRTM:  return 39.6
+        case .osakaSRTM:        return 29.0
+        case .panamaCanalSRTM:  return 39.4
+        case .parisSRTM:        return 20.1
+        case .phnomPenhSRTM:    return 17.5
+        case .pyongyangSRTM:    return 47.5
+        case .rioDeJaneiroSRTM: return 62.4
+        case .romeSRTM:         return 31.8
+        case .seoulSRTM:        return 62.9
+        case .shanghaiSRTM:     return 26.4
+        case .singaporeSRTM:    return 37.9
+        case .stockholmSRTM:    return 45.8
+        case .sydneySRTM:       return 55.5
+        case .taipeiSRTM:       return 26.0
+        case .telAvivSRTM:      return 13.5
+        case .tokyoSRTM:        return 74.0
+        case .veniceSRTM:       return 4.6
+        }
+    }
+
     var infoTitle: String {
         return String(format: String(key: "info.title.format.srtm"), String(key: "info.title.\(resourceName)"))
     }

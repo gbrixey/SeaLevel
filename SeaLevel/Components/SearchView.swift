@@ -12,6 +12,8 @@ struct SearchView: View {
                 Text("search.subtitle")
                 self.dataPicker
                 Text(selectedDataSet.infoTitle)
+                Text(dataSizeText)
+                    .bold()
                 Text(selectedDataSet.infoText)
                 Spacer()
             }
@@ -26,6 +28,11 @@ struct SearchView: View {
 
     private var selectedDataSet: DataSet {
         DataSet.allCases[dataIndex]
+    }
+
+    private var dataSizeText: String {
+        let format = String(key: "search.data.size.format")
+        return String(format: format, selectedDataSet.size)
     }
 
     private var cancelButton: some View {

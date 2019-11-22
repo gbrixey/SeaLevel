@@ -50,7 +50,7 @@
 		E1661FFD23883FAB0043CEC7 /* taipeiSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FCE23883FAA0043CEC7 /* taipeiSRTM.zip */; settings = {ASSET_TAGS = (taipeiSRTM, ); }; };
 		E1661FFE23883FAB0043CEC7 /* buenosAiresSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FCF23883FAA0043CEC7 /* buenosAiresSRTM.zip */; settings = {ASSET_TAGS = (buenosAiresSRTM, ); }; };
 		E1661FFF23883FAB0043CEC7 /* telAvivSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FD023883FAA0043CEC7 /* telAvivSRTM.zip */; settings = {ASSET_TAGS = (telAvivSRTM, ); }; };
-		E166200023883FAB0043CEC7 /* veniceSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FD123883FAA0043CEC7 /* veniceSRTM.zip */; };
+		E166200023883FAB0043CEC7 /* veniceSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FD123883FAA0043CEC7 /* veniceSRTM.zip */; settings = {ASSET_TAGS = (veniceSRTM, ); }; };
 		E166200123883FAB0043CEC7 /* bangkokSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FD223883FAA0043CEC7 /* bangkokSRTM.zip */; settings = {ASSET_TAGS = (bangkokSRTM, ); }; };
 		E166200223883FAB0043CEC7 /* barcelonaSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FD323883FAA0043CEC7 /* barcelonaSRTM.zip */; settings = {ASSET_TAGS = (barcelonaSRTM, ); }; };
 		E166200323883FAB0043CEC7 /* hongKongSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FD423883FAA0043CEC7 /* hongKongSRTM.zip */; settings = {ASSET_TAGS = (hongKongSRTM, ); }; };
@@ -410,6 +410,7 @@
 					taipeiSRTM,
 					telAvivSRTM,
 					tokyoSRTM,
+					veniceSRTM,
 				);
 				LastSwiftUpdateCheck = 1110;
 				LastUpgradeCheck = 1110;

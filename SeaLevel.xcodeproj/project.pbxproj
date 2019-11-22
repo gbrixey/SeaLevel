@@ -13,6 +13,53 @@
 		E1126B15236B555600931065 /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1126B14236B555600931065 /* LocalizedString.swift */; };
 		E1126B17236B64F300931065 /* Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1126B16236B64F300931065 /* Transitions.swift */; };
 		E13AD4D2236CC74F008AE91E /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13AD4D1236CC74F008AE91E /* ActionButton.swift */; };
+		E1661FDB23883FAB0043CEC7 /* kualaLumpurSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FAC23883FA70043CEC7 /* kualaLumpurSRTM.zip */; settings = {ASSET_TAGS = (kualaLumpurSRTM, ); }; };
+		E1661FDC23883FAB0043CEC7 /* mumbaiSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FAD23883FA70043CEC7 /* mumbaiSRTM.zip */; settings = {ASSET_TAGS = (mumbaiSRTM, ); }; };
+		E1661FDD23883FAB0043CEC7 /* kolkataSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FAE23883FA70043CEC7 /* kolkataSRTM.zip */; settings = {ASSET_TAGS = (kolkataSRTM, ); }; };
+		E1661FDE23883FAB0043CEC7 /* seoulSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FAF23883FA70043CEC7 /* seoulSRTM.zip */; settings = {ASSET_TAGS = (seoulSRTM, ); }; };
+		E1661FDF23883FAB0043CEC7 /* panamaCanalSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FB023883FA70043CEC7 /* panamaCanalSRTM.zip */; settings = {ASSET_TAGS = (panamaCanalSRTM, ); }; };
+		E1661FE023883FAB0043CEC7 /* melbourneSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FB123883FA70043CEC7 /* melbourneSRTM.zip */; settings = {ASSET_TAGS = (melbourneSRTM, ); }; };
+		E1661FE123883FAB0043CEC7 /* istanbulSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FB223883FA70043CEC7 /* istanbulSRTM.zip */; settings = {ASSET_TAGS = (istanbulSRTM, ); }; };
+		E1661FE223883FAB0043CEC7 /* montrealSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FB323883FA70043CEC7 /* montrealSRTM.zip */; settings = {ASSET_TAGS = (montrealSRTM, ); }; };
+		E1661FE323883FAB0043CEC7 /* copenhagenSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FB423883FA70043CEC7 /* copenhagenSRTM.zip */; settings = {ASSET_TAGS = (copenhagenSRTM, ); }; };
+		E1661FE423883FAB0043CEC7 /* amsterdamSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FB523883FA70043CEC7 /* amsterdamSRTM.zip */; settings = {ASSET_TAGS = (amsterdamSRTM, ); }; };
+		E1661FE523883FAB0043CEC7 /* karachiSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FB623883FA70043CEC7 /* karachiSRTM.zip */; settings = {ASSET_TAGS = (karachiSRTM, ); }; };
+		E1661FE623883FAB0043CEC7 /* phnomPenhSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FB723883FA70043CEC7 /* phnomPenhSRTM.zip */; settings = {ASSET_TAGS = (phnomPenhSRTM, ); }; };
+		E1661FE723883FAB0043CEC7 /* aucklandSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FB823883FA70043CEC7 /* aucklandSRTM.zip */; settings = {ASSET_TAGS = (aucklandSRTM, ); }; };
+		E1661FE823883FAB0043CEC7 /* hoChiMinhCitySRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FB923883FA80043CEC7 /* hoChiMinhCitySRTM.zip */; settings = {ASSET_TAGS = (hoChiMinhCitySRTM, ); }; };
+		E1661FE923883FAB0043CEC7 /* capeTownSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FBA23883FA80043CEC7 /* capeTownSRTM.zip */; settings = {ASSET_TAGS = (capeTownSRTM, ); }; };
+		E1661FEA23883FAB0043CEC7 /* berlinSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FBB23883FA80043CEC7 /* berlinSRTM.zip */; settings = {ASSET_TAGS = (berlinSRTM, ); }; };
+		E1661FEB23883FAB0043CEC7 /* dhakaSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FBC23883FA80043CEC7 /* dhakaSRTM.zip */; settings = {ASSET_TAGS = (dhakaSRTM, ); }; };
+		E1661FEC23883FAB0043CEC7 /* edinburghSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FBD23883FA80043CEC7 /* edinburghSRTM.zip */; settings = {ASSET_TAGS = (edinburghSRTM, ); }; };
+		E1661FED23883FAB0043CEC7 /* athensSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FBE23883FA80043CEC7 /* athensSRTM.zip */; settings = {ASSET_TAGS = (athensSRTM, ); }; };
+		E1661FEE23883FAB0043CEC7 /* guangzhouSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FBF23883FA80043CEC7 /* guangzhouSRTM.zip */; settings = {ASSET_TAGS = (guangzhouSRTM, ); }; };
+		E1661FEF23883FAB0043CEC7 /* limaSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FC023883FA80043CEC7 /* limaSRTM.zip */; settings = {ASSET_TAGS = (limaSRTM, ); }; };
+		E1661FF023883FAB0043CEC7 /* dubaiSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FC123883FA80043CEC7 /* dubaiSRTM.zip */; settings = {ASSET_TAGS = (dubaiSRTM, ); }; };
+		E1661FF123883FAB0043CEC7 /* parisSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FC223883FA80043CEC7 /* parisSRTM.zip */; settings = {ASSET_TAGS = (parisSRTM, ); }; };
+		E1661FF223883FAB0043CEC7 /* brusselsSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FC323883FA80043CEC7 /* brusselsSRTM.zip */; settings = {ASSET_TAGS = (brusselsSRTM, ); }; };
+		E1661FF323883FAB0043CEC7 /* chennaiSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FC423883FA80043CEC7 /* chennaiSRTM.zip */; settings = {ASSET_TAGS = (chennaiSRTM, ); }; };
+		E1661FF423883FAB0043CEC7 /* osakaSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FC523883FA90043CEC7 /* osakaSRTM.zip */; settings = {ASSET_TAGS = (osakaSRTM, ); }; };
+		E1661FF523883FAB0043CEC7 /* romeSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FC623883FA90043CEC7 /* romeSRTM.zip */; settings = {ASSET_TAGS = (romeSRTM, ); }; };
+		E1661FF623883FAB0043CEC7 /* cairoSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FC723883FA90043CEC7 /* cairoSRTM.zip */; settings = {ASSET_TAGS = (cairoSRTM, ); }; };
+		E1661FF723883FAB0043CEC7 /* lagosSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FC823883FA90043CEC7 /* lagosSRTM.zip */; settings = {ASSET_TAGS = (lagosSRTM, ); }; };
+		E1661FF823883FAB0043CEC7 /* shanghaiSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FC923883FA90043CEC7 /* shanghaiSRTM.zip */; settings = {ASSET_TAGS = (shanghaiSRTM, ); }; };
+		E1661FF923883FAB0043CEC7 /* sydneySRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FCA23883FA90043CEC7 /* sydneySRTM.zip */; settings = {ASSET_TAGS = (sydneySRTM, ); }; };
+		E1661FFA23883FAB0043CEC7 /* lisbonSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FCB23883FA90043CEC7 /* lisbonSRTM.zip */; settings = {ASSET_TAGS = (lisbonSRTM, ); }; };
+		E1661FFB23883FAB0043CEC7 /* manilaSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FCC23883FA90043CEC7 /* manilaSRTM.zip */; settings = {ASSET_TAGS = (manilaSRTM, ); }; };
+		E1661FFC23883FAB0043CEC7 /* dublinSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FCD23883FA90043CEC7 /* dublinSRTM.zip */; settings = {ASSET_TAGS = (dublinSRTM, ); }; };
+		E1661FFD23883FAB0043CEC7 /* taipeiSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FCE23883FAA0043CEC7 /* taipeiSRTM.zip */; settings = {ASSET_TAGS = (taipeiSRTM, ); }; };
+		E1661FFE23883FAB0043CEC7 /* buenosAiresSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FCF23883FAA0043CEC7 /* buenosAiresSRTM.zip */; settings = {ASSET_TAGS = (buenosAiresSRTM, ); }; };
+		E1661FFF23883FAB0043CEC7 /* telAvivSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FD023883FAA0043CEC7 /* telAvivSRTM.zip */; settings = {ASSET_TAGS = (telAvivSRTM, ); }; };
+		E166200023883FAB0043CEC7 /* veniceSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FD123883FAA0043CEC7 /* veniceSRTM.zip */; };
+		E166200123883FAB0043CEC7 /* bangkokSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FD223883FAA0043CEC7 /* bangkokSRTM.zip */; settings = {ASSET_TAGS = (bangkokSRTM, ); }; };
+		E166200223883FAB0043CEC7 /* barcelonaSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FD323883FAA0043CEC7 /* barcelonaSRTM.zip */; settings = {ASSET_TAGS = (barcelonaSRTM, ); }; };
+		E166200323883FAB0043CEC7 /* hongKongSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FD423883FAA0043CEC7 /* hongKongSRTM.zip */; settings = {ASSET_TAGS = (hongKongSRTM, ); }; };
+		E166200423883FAB0043CEC7 /* hanoiSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FD523883FAB0043CEC7 /* hanoiSRTM.zip */; settings = {ASSET_TAGS = (hanoiSRTM, ); }; };
+		E166200523883FAB0043CEC7 /* singaporeSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FD623883FAB0043CEC7 /* singaporeSRTM.zip */; settings = {ASSET_TAGS = (singaporeSRTM, ); }; };
+		E166200623883FAB0043CEC7 /* pyongyangSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FD723883FAB0043CEC7 /* pyongyangSRTM.zip */; settings = {ASSET_TAGS = (pyongyangSRTM, ); }; };
+		E166200723883FAB0043CEC7 /* stockholmSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FD823883FAB0043CEC7 /* stockholmSRTM.zip */; settings = {ASSET_TAGS = (stockholmSRTM, ); }; };
+		E166200823883FAB0043CEC7 /* havanaSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FD923883FAB0043CEC7 /* havanaSRTM.zip */; settings = {ASSET_TAGS = (havanaSRTM, ); }; };
+		E166200923883FAB0043CEC7 /* rioDeJaneiroSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1661FDA23883FAB0043CEC7 /* rioDeJaneiroSRTM.zip */; settings = {ASSET_TAGS = (rioDeJaneiroSRTM, ); }; };
 		E1979E7A237C8F5C00872878 /* tokyoSRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1979E79237C8F5C00872878 /* tokyoSRTM.zip */; settings = {ASSET_TAGS = (tokyoSRTM, ); }; };
 		E1E51C8A2373366F00E6EFB2 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E51C892373366F00E6EFB2 /* LocationManager.swift */; };
 		E1E51C8C23736FBD00E6EFB2 /* newYorkCitySRTM.zip in Resources */ = {isa = PBXBuildFile; fileRef = E1E51C8B23736FBD00E6EFB2 /* newYorkCitySRTM.zip */; settings = {ASSET_TAGS = (newYorkCitySRTM, ); }; };
@@ -46,6 +93,53 @@
 		E1126B14236B555600931065 /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		E1126B16236B64F300931065 /* Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transitions.swift; sourceTree = "<group>"; };
 		E13AD4D1236CC74F008AE91E /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		E1661FAC23883FA70043CEC7 /* kualaLumpurSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = kualaLumpurSRTM.zip; sourceTree = "<group>"; };
+		E1661FAD23883FA70043CEC7 /* mumbaiSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = mumbaiSRTM.zip; sourceTree = "<group>"; };
+		E1661FAE23883FA70043CEC7 /* kolkataSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = kolkataSRTM.zip; sourceTree = "<group>"; };
+		E1661FAF23883FA70043CEC7 /* seoulSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = seoulSRTM.zip; sourceTree = "<group>"; };
+		E1661FB023883FA70043CEC7 /* panamaCanalSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = panamaCanalSRTM.zip; sourceTree = "<group>"; };
+		E1661FB123883FA70043CEC7 /* melbourneSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = melbourneSRTM.zip; sourceTree = "<group>"; };
+		E1661FB223883FA70043CEC7 /* istanbulSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = istanbulSRTM.zip; sourceTree = "<group>"; };
+		E1661FB323883FA70043CEC7 /* montrealSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = montrealSRTM.zip; sourceTree = "<group>"; };
+		E1661FB423883FA70043CEC7 /* copenhagenSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = copenhagenSRTM.zip; sourceTree = "<group>"; };
+		E1661FB523883FA70043CEC7 /* amsterdamSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = amsterdamSRTM.zip; sourceTree = "<group>"; };
+		E1661FB623883FA70043CEC7 /* karachiSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = karachiSRTM.zip; sourceTree = "<group>"; };
+		E1661FB723883FA70043CEC7 /* phnomPenhSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = phnomPenhSRTM.zip; sourceTree = "<group>"; };
+		E1661FB823883FA70043CEC7 /* aucklandSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = aucklandSRTM.zip; sourceTree = "<group>"; };
+		E1661FB923883FA80043CEC7 /* hoChiMinhCitySRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = hoChiMinhCitySRTM.zip; sourceTree = "<group>"; };
+		E1661FBA23883FA80043CEC7 /* capeTownSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = capeTownSRTM.zip; sourceTree = "<group>"; };
+		E1661FBB23883FA80043CEC7 /* berlinSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = berlinSRTM.zip; sourceTree = "<group>"; };
+		E1661FBC23883FA80043CEC7 /* dhakaSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = dhakaSRTM.zip; sourceTree = "<group>"; };
+		E1661FBD23883FA80043CEC7 /* edinburghSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = edinburghSRTM.zip; sourceTree = "<group>"; };
+		E1661FBE23883FA80043CEC7 /* athensSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = athensSRTM.zip; sourceTree = "<group>"; };
+		E1661FBF23883FA80043CEC7 /* guangzhouSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = guangzhouSRTM.zip; sourceTree = "<group>"; };
+		E1661FC023883FA80043CEC7 /* limaSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = limaSRTM.zip; sourceTree = "<group>"; };
+		E1661FC123883FA80043CEC7 /* dubaiSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = dubaiSRTM.zip; sourceTree = "<group>"; };
+		E1661FC223883FA80043CEC7 /* parisSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = parisSRTM.zip; sourceTree = "<group>"; };
+		E1661FC323883FA80043CEC7 /* brusselsSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = brusselsSRTM.zip; sourceTree = "<group>"; };
+		E1661FC423883FA80043CEC7 /* chennaiSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = chennaiSRTM.zip; sourceTree = "<group>"; };
+		E1661FC523883FA90043CEC7 /* osakaSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = osakaSRTM.zip; sourceTree = "<group>"; };
+		E1661FC623883FA90043CEC7 /* romeSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = romeSRTM.zip; sourceTree = "<group>"; };
+		E1661FC723883FA90043CEC7 /* cairoSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = cairoSRTM.zip; sourceTree = "<group>"; };
+		E1661FC823883FA90043CEC7 /* lagosSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = lagosSRTM.zip; sourceTree = "<group>"; };
+		E1661FC923883FA90043CEC7 /* shanghaiSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = shanghaiSRTM.zip; sourceTree = "<group>"; };
+		E1661FCA23883FA90043CEC7 /* sydneySRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = sydneySRTM.zip; sourceTree = "<group>"; };
+		E1661FCB23883FA90043CEC7 /* lisbonSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = lisbonSRTM.zip; sourceTree = "<group>"; };
+		E1661FCC23883FA90043CEC7 /* manilaSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = manilaSRTM.zip; sourceTree = "<group>"; };
+		E1661FCD23883FA90043CEC7 /* dublinSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = dublinSRTM.zip; sourceTree = "<group>"; };
+		E1661FCE23883FAA0043CEC7 /* taipeiSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = taipeiSRTM.zip; sourceTree = "<group>"; };
+		E1661FCF23883FAA0043CEC7 /* buenosAiresSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = buenosAiresSRTM.zip; sourceTree = "<group>"; };
+		E1661FD023883FAA0043CEC7 /* telAvivSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = telAvivSRTM.zip; sourceTree = "<group>"; };
+		E1661FD123883FAA0043CEC7 /* veniceSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = veniceSRTM.zip; sourceTree = "<group>"; };
+		E1661FD223883FAA0043CEC7 /* bangkokSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = bangkokSRTM.zip; sourceTree = "<group>"; };
+		E1661FD323883FAA0043CEC7 /* barcelonaSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = barcelonaSRTM.zip; sourceTree = "<group>"; };
+		E1661FD423883FAA0043CEC7 /* hongKongSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = hongKongSRTM.zip; sourceTree = "<group>"; };
+		E1661FD523883FAB0043CEC7 /* hanoiSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = hanoiSRTM.zip; sourceTree = "<group>"; };
+		E1661FD623883FAB0043CEC7 /* singaporeSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = singaporeSRTM.zip; sourceTree = "<group>"; };
+		E1661FD723883FAB0043CEC7 /* pyongyangSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = pyongyangSRTM.zip; sourceTree = "<group>"; };
+		E1661FD823883FAB0043CEC7 /* stockholmSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = stockholmSRTM.zip; sourceTree = "<group>"; };
+		E1661FD923883FAB0043CEC7 /* havanaSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = havanaSRTM.zip; sourceTree = "<group>"; };
+		E1661FDA23883FAB0043CEC7 /* rioDeJaneiroSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = rioDeJaneiroSRTM.zip; sourceTree = "<group>"; };
 		E1979E79237C8F5C00872878 /* tokyoSRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = tokyoSRTM.zip; sourceTree = "<group>"; };
 		E1E51C892373366F00E6EFB2 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		E1E51C8B23736FBD00E6EFB2 /* newYorkCitySRTM.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = newYorkCitySRTM.zip; sourceTree = "<group>"; };
@@ -171,11 +265,58 @@
 			children = (
 				E1E9E4BB2363A4EF008EBEDE /* clear.png */,
 				E1E987AD2365525C008EBEDE /* solid.png */,
+				E1661FB523883FA70043CEC7 /* amsterdamSRTM.zip */,
+				E1661FBE23883FA80043CEC7 /* athensSRTM.zip */,
+				E1661FB823883FA70043CEC7 /* aucklandSRTM.zip */,
+				E1661FD223883FAA0043CEC7 /* bangkokSRTM.zip */,
+				E1661FD323883FAA0043CEC7 /* barcelonaSRTM.zip */,
+				E1661FBB23883FA80043CEC7 /* berlinSRTM.zip */,
+				E1661FC323883FA80043CEC7 /* brusselsSRTM.zip */,
+				E1661FCF23883FAA0043CEC7 /* buenosAiresSRTM.zip */,
+				E1661FC723883FA90043CEC7 /* cairoSRTM.zip */,
+				E1661FBA23883FA80043CEC7 /* capeTownSRTM.zip */,
+				E1661FC423883FA80043CEC7 /* chennaiSRTM.zip */,
+				E1661FB423883FA70043CEC7 /* copenhagenSRTM.zip */,
+				E1661FBC23883FA80043CEC7 /* dhakaSRTM.zip */,
+				E1661FC123883FA80043CEC7 /* dubaiSRTM.zip */,
+				E1661FCD23883FA90043CEC7 /* dublinSRTM.zip */,
+				E1661FBD23883FA80043CEC7 /* edinburghSRTM.zip */,
+				E1661FBF23883FA80043CEC7 /* guangzhouSRTM.zip */,
+				E1661FD523883FAB0043CEC7 /* hanoiSRTM.zip */,
+				E1661FD923883FAB0043CEC7 /* havanaSRTM.zip */,
+				E1661FB923883FA80043CEC7 /* hoChiMinhCitySRTM.zip */,
+				E1661FD423883FAA0043CEC7 /* hongKongSRTM.zip */,
+				E1661FB223883FA70043CEC7 /* istanbulSRTM.zip */,
 				E10D82D0237B5035004EF501 /* jakartaSRTM.zip */,
+				E1661FB623883FA70043CEC7 /* karachiSRTM.zip */,
+				E1661FAE23883FA70043CEC7 /* kolkataSRTM.zip */,
+				E1661FAC23883FA70043CEC7 /* kualaLumpurSRTM.zip */,
+				E1661FC823883FA90043CEC7 /* lagosSRTM.zip */,
+				E1661FC023883FA80043CEC7 /* limaSRTM.zip */,
+				E1661FCB23883FA90043CEC7 /* lisbonSRTM.zip */,
 				E1E51C972373A8DF00E6EFB2 /* londonSRTM.zip */,
+				E1661FCC23883FA90043CEC7 /* manilaSRTM.zip */,
+				E1661FB123883FA70043CEC7 /* melbourneSRTM.zip */,
 				E10D82CE237AFF7C004EF501 /* miamiSRTM.zip */,
+				E1661FB323883FA70043CEC7 /* montrealSRTM.zip */,
+				E1661FAD23883FA70043CEC7 /* mumbaiSRTM.zip */,
 				E1E51C8B23736FBD00E6EFB2 /* newYorkCitySRTM.zip */,
+				E1661FC523883FA90043CEC7 /* osakaSRTM.zip */,
+				E1661FB023883FA70043CEC7 /* panamaCanalSRTM.zip */,
+				E1661FC223883FA80043CEC7 /* parisSRTM.zip */,
+				E1661FB723883FA70043CEC7 /* phnomPenhSRTM.zip */,
+				E1661FD723883FAB0043CEC7 /* pyongyangSRTM.zip */,
+				E1661FDA23883FAB0043CEC7 /* rioDeJaneiroSRTM.zip */,
+				E1661FC623883FA90043CEC7 /* romeSRTM.zip */,
+				E1661FAF23883FA70043CEC7 /* seoulSRTM.zip */,
+				E1661FC923883FA90043CEC7 /* shanghaiSRTM.zip */,
+				E1661FD623883FAB0043CEC7 /* singaporeSRTM.zip */,
+				E1661FD823883FAB0043CEC7 /* stockholmSRTM.zip */,
+				E1661FCA23883FA90043CEC7 /* sydneySRTM.zip */,
+				E1661FCE23883FAA0043CEC7 /* taipeiSRTM.zip */,
+				E1661FD023883FAA0043CEC7 /* telAvivSRTM.zip */,
 				E1979E79237C8F5C00872878 /* tokyoSRTM.zip */,
+				E1661FD123883FAA0043CEC7 /* veniceSRTM.zip */,
 			);
 			path = Tiles;
 			sourceTree = "<group>";
@@ -208,10 +349,56 @@
 			isa = PBXProject;
 			attributes = {
 				KnownAssetTags = (
+					amsterdamSRTM,
+					athensSRTM,
+					aucklandSRTM,
+					bangkokSRTM,
+					barcelonaSRTM,
+					berlinSRTM,
+					brusselsSRTM,
+					buenosAiresSRTM,
+					cairoSRTM,
+					capeTownSRTM,
+					chennaiSRTM,
+					copenhagenSRTM,
+					dhakaSRTM,
+					dubaiSRTM,
+					dublinSRTM,
+					edinburghSRTM,
+					guangzhouSRTM,
+					hanoiSRTM,
+					havanaSRTM,
+					hoChiMinhCitySRTM,
+					hongKongSRTM,
+					istanbulSRTM,
 					jakartaSRTM,
+					karachiSRTM,
+					kolkataSRTM,
+					kualaLumpurSRTM,
+					lagosSRTM,
+					limaSRTM,
+					lisbonSRTM,
 					londonSRTM,
+					manilaSRTM,
+					melbourneSRTM,
 					miamiSRTM,
+					montrealSRTM,
+					mumbaiSRTM,
 					newYorkCitySRTM,
+					osakaSRTM,
+					panamaCanalSRTM,
+					parisSRTM,
+					phnomPenhSRTM,
+					pyongyangSRTM,
+					rioDeJaneiroSRTM,
+					romeSRTM,
+					seoulSRTM,
+					shanghaiSRTM,
+					singaporeSRTM,
+					stockholmSRTM,
+					sydneySRTM,
+					taipeiSRTM,
+					telAvivSRTM,
 					tokyoSRTM,
 				);
 				LastSwiftUpdateCheck = 1110;
@@ -247,16 +434,63 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1979E7A237C8F5C00872878 /* tokyoSRTM.zip in Resources */,
+				E1661FF223883FAB0043CEC7 /* brusselsSRTM.zip in Resources */,
+				E1661FEB23883FAB0043CEC7 /* dhakaSRTM.zip in Resources */,
+				E1661FEE23883FAB0043CEC7 /* guangzhouSRTM.zip in Resources */,
+				E1661FE623883FAB0043CEC7 /* phnomPenhSRTM.zip in Resources */,
+				E1661FE923883FAB0043CEC7 /* capeTownSRTM.zip in Resources */,
+				E1661FDE23883FAB0043CEC7 /* seoulSRTM.zip in Resources */,
+				E1661FF923883FAB0043CEC7 /* sydneySRTM.zip in Resources */,
+				E1661FDB23883FAB0043CEC7 /* kualaLumpurSRTM.zip in Resources */,
+				E1661FF323883FAB0043CEC7 /* chennaiSRTM.zip in Resources */,
+				E1661FEC23883FAB0043CEC7 /* edinburghSRTM.zip in Resources */,
+				E166200123883FAB0043CEC7 /* bangkokSRTM.zip in Resources */,
+				E166200723883FAB0043CEC7 /* stockholmSRTM.zip in Resources */,
+				E1661FFA23883FAB0043CEC7 /* lisbonSRTM.zip in Resources */,
+				E1661FFE23883FAB0043CEC7 /* buenosAiresSRTM.zip in Resources */,
 				E1E9059E23643B14008EBEDE /* Localizable.strings in Resources */,
+				E1661FF423883FAB0043CEC7 /* osakaSRTM.zip in Resources */,
+				E1661FED23883FAB0043CEC7 /* athensSRTM.zip in Resources */,
 				E1E987AE2365525C008EBEDE /* solid.png in Resources */,
 				E10D82D1237B5036004EF501 /* jakartaSRTM.zip in Resources */,
 				E1E9E44B235E0DD6008EBEDE /* LaunchScreen.storyboard in Resources */,
+				E1661FE823883FAB0043CEC7 /* hoChiMinhCitySRTM.zip in Resources */,
+				E1661FDF23883FAB0043CEC7 /* panamaCanalSRTM.zip in Resources */,
+				E1661FF723883FAB0043CEC7 /* lagosSRTM.zip in Resources */,
 				E1E51C8C23736FBD00E6EFB2 /* newYorkCitySRTM.zip in Resources */,
+				E166200223883FAB0043CEC7 /* barcelonaSRTM.zip in Resources */,
+				E166200923883FAB0043CEC7 /* rioDeJaneiroSRTM.zip in Resources */,
+				E1661FE723883FAB0043CEC7 /* aucklandSRTM.zip in Resources */,
+				E166200323883FAB0043CEC7 /* hongKongSRTM.zip in Resources */,
+				E1661FFD23883FAB0043CEC7 /* taipeiSRTM.zip in Resources */,
+				E1661FE323883FAB0043CEC7 /* copenhagenSRTM.zip in Resources */,
+				E1661FF623883FAB0043CEC7 /* cairoSRTM.zip in Resources */,
 				E1E9E448235E0DD6008EBEDE /* Preview Assets.xcassets in Resources */,
+				E1661FF023883FAB0043CEC7 /* dubaiSRTM.zip in Resources */,
 				E1E9E445235E0DD6008EBEDE /* Assets.xcassets in Resources */,
+				E1661FE023883FAB0043CEC7 /* melbourneSRTM.zip in Resources */,
+				E1661FE523883FAB0043CEC7 /* karachiSRTM.zip in Resources */,
+				E1661FEF23883FAB0043CEC7 /* limaSRTM.zip in Resources */,
+				E1661FFF23883FAB0043CEC7 /* telAvivSRTM.zip in Resources */,
+				E1661FFB23883FAB0043CEC7 /* manilaSRTM.zip in Resources */,
 				E10D82CF237AFF7C004EF501 /* miamiSRTM.zip in Resources */,
+				E1661FF123883FAB0043CEC7 /* parisSRTM.zip in Resources */,
+				E1661FE423883FAB0043CEC7 /* amsterdamSRTM.zip in Resources */,
+				E166200623883FAB0043CEC7 /* pyongyangSRTM.zip in Resources */,
+				E1661FDC23883FAB0043CEC7 /* mumbaiSRTM.zip in Resources */,
+				E1661FDD23883FAB0043CEC7 /* kolkataSRTM.zip in Resources */,
 				E1E9E4BC2363A4EF008EBEDE /* clear.png in Resources */,
+				E1661FFC23883FAB0043CEC7 /* dublinSRTM.zip in Resources */,
+				E1661FF823883FAB0043CEC7 /* shanghaiSRTM.zip in Resources */,
+				E1661FE223883FAB0043CEC7 /* montrealSRTM.zip in Resources */,
+				E166200823883FAB0043CEC7 /* havanaSRTM.zip in Resources */,
 				E1E51C982373A8DF00E6EFB2 /* londonSRTM.zip in Resources */,
+				E166200523883FAB0043CEC7 /* singaporeSRTM.zip in Resources */,
+				E1661FE123883FAB0043CEC7 /* istanbulSRTM.zip in Resources */,
+				E166200423883FAB0043CEC7 /* hanoiSRTM.zip in Resources */,
+				E1661FF523883FAB0043CEC7 /* romeSRTM.zip in Resources */,
+				E1661FEA23883FAB0043CEC7 /* berlinSRTM.zip in Resources */,
+				E166200023883FAB0043CEC7 /* veniceSRTM.zip in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

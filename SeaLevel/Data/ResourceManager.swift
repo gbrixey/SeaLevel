@@ -18,7 +18,17 @@ class ResourceManager {
     let loadingStepObservable = LoadingStepObservable()
     private(set) var progress = Progress()
     private(set) var error: Error?
-    private(set) var currentDataSet = ResourceManager.defaultDataSet
+
+    private(set) var currentDataSet = ResourceManager.defaultDataSet {
+        didSet {
+            UserDefaults.standard.set(currentDataSet.rawValue, forKey: ResourceManager.currentDataSetUserDefaultsKey)
+        }
+    }
+
+    init() {
+        let dataSetString = UserDefaults.standard.string(forKey: ResourceManager.currentDataSetUserDefaultsKey)
+        currentDataSet = DataSet(rawValue: dataSetString ?? "") ?? ResourceManager.defaultDataSet
+    }
 
     func requestDataSet(_ dataSet: DataSet) {
         currentResourceRequest?.endAccessingResources()
@@ -80,6 +90,7 @@ class ResourceManager {
 
     // MARK: - Private
 
+    private static let currentDataSetUserDefaultsKey = "com.glenb.SeaLevel.ResourceManager.currentDataSet"
     private static let defaultDataSet: DataSet = .newYorkCitySRTM
     private static var solidTileURL: URL { Bundle.main.url(forResource: "solid", withExtension: "png")! }
     private static var clearTileURL: URL { Bundle.main.url(forResource: "clear", withExtension: "png")! }

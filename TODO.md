@@ -1,6 +1,5 @@
 # TODO list
 
-- Save last selected elevation and dataset to user defaults?
 - Show a tutorial view on the first app launch?
 - Add additional datasets
     - Advanced Spaceborne Thermal Emission and Reflection Radiometer (ASTER)

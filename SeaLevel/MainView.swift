@@ -1,14 +1,15 @@
 import SwiftUI
+import Combine
 import MapKit
 
 /// The root view of the application
 struct MainView: View {
-    @State private var seaLevel: Double = 0
     @State private var showModalView = false
     @State private var modalViewType: ModalViewType = .searchView
     @State private var mapShowsOverlays = true
     @State private var mapShowsUserLocation = false
     @State private var programmaticMapRegion: MKCoordinateRegion?
+    @ObservedObject private var seaLevelObservable = SeaLevelObservable()
     @ObservedObject private var loadingObservable = ResourceManager.shared.loadingObservable
 
     // MARK: - Body
@@ -20,7 +21,7 @@ struct MainView: View {
                 if !mapShowsOverlays {
                     recenterMapButton
                 }
-                SeaLevelSlider(seaLevel: $seaLevel)
+                SeaLevelSlider(seaLevel: $seaLevelObservable.seaLevel)
                 userLocationButton
                 searchButton
                 infoButton
@@ -53,7 +54,7 @@ struct MainView: View {
     }
 
     private var mapView: some View {
-        MapView(seaLevel: $seaLevel,
+        MapView(seaLevel: $seaLevelObservable.seaLevel,
                 mapShowsOverlays: $mapShowsOverlays,
                 mapShowsUserLocation: $mapShowsUserLocation,
                 programmaticMapRegion: $programmaticMapRegion)
@@ -104,5 +105,18 @@ struct MainView: View {
         Alert(title: Text("error.title"),
               message: Text("error.message"),
               dismissButton: .default(Text("error.dismiss")))
+    }
+}
+
+// MARK: - Observable Objects
+
+class SeaLevelObservable: ObservableObject {
+    let objectWillChange = PassthroughSubject<Void, Never>()
+
+    @UserDefaultsWrapped(key: "com.glenb.SeaLevel.MainView.seaLevel", defaultValue: 0)
+    fileprivate(set) var seaLevel: Double {
+        willSet {
+            objectWillChange.send()
+        }
     }
 }

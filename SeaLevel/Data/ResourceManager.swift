@@ -25,6 +25,16 @@ class ResourceManager {
         }
     }
 
+    /// The completion block will be called with `true` if the given data set has already been downloaded to the device.
+    func checkIfDataSetIsAvailable(_ dataSet: DataSet, completion: @escaping (Bool) -> Void) {
+        let request = NSBundleResourceRequest(tags: [dataSet.resourceName])
+        request.conditionallyBeginAccessingResources(completionHandler: { isDataSetAvailable in
+            completion(isDataSetAvailable)
+            request.endAccessingResources()
+        })
+    }
+
+    /// Downloads and unpackages the given data set.
     func requestDataSet(_ dataSet: DataSet) {
         currentResourceRequest?.endAccessingResources()
         currentDataSet = dataSet

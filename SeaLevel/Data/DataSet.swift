@@ -99,7 +99,7 @@ enum DataSet: String, CaseIterable {
         case .lisbonSRTM:        tuple = ( 38.685510,   -9.140625, 0.549, 0.703)
         case .londonSRTM:        tuple = ( 51.508742,   -0.175781, 0.438, 0.703)
         case .manilaSRTM:        tuple = ( 14.604847,  121.025391, 0.680, 0.527)
-        case .melbourneSRTM:     tuple = (-33.578015,  145.019531, 0.586, 0.703)
+        case .melbourneSRTM:     tuple = (-37.857507,  145.019531, 0.555, 0.703)
         case .miamiSRTM:         tuple = ( 26.194877,  -80.244141, 1.735, 0.527)
         case .montrealSRTM:      tuple = ( 45.583290,  -73.652344, 0.492, 0.703)
         case .mumbaiSRTM:        tuple = ( 19.145168,   72.949219, 0.664, 0.703)
@@ -159,7 +159,7 @@ enum DataSet: String, CaseIterable {
         case .lisbonSRTM:       return 33.7
         case .londonSRTM:       return 34.6
         case .manilaSRTM:       return 25.9
-        case .melbourneSRTM:    return 7.1
+        case .melbourneSRTM:    return 31.2
         case .miamiSRTM:        return 49.1
         case .montrealSRTM:     return 29.3
         case .mumbaiSRTM:       return 47.8
